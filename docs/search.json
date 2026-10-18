@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "CALM Lab useRguide",
+    "section": "",
+    "text": "Welcome\nThis is the useRguide for the CALM Lab. It is intended to be a resource for new lab members to get up to speed with the tools and workflows that we use in the lab. It is also a reference for existing lab members to refresh their knowledge or learn new skills.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "chapters/0-what-is-r.html",
+    "href": "chapters/0-what-is-r.html",
+    "title": "What is R?",
+    "section": "",
+    "text": "According to the R website\n\nR is a free software environment for statistical computing and graphics.\n\nLet’s unpack this.\n\nFree is nice!\nStatistical computing is a general term referring to a large class of techniques that involves statistics, machine learning, and more.\nGraphics refers to creating visualizations of data and output from statistical computing.\n\nIt’s really all about data. We live in a world where data is everywhere. Our personal lives, the media, and our work are all filled with data. That data is hidden behind numbers stored in spreadsheets, databases, and other formats. A fundamental skill in the modern world is the ability to analyze and visualize data. R is a tool that can help you do just that.\nR is a programming language. There are pros and cons to using a programming language over Excel and GUI (Graphical User Interface) applications with click-and-drag functionality. The pros are related to the fact that programming languages are more flexible, powerful, and reproducible than GUI applications. The cons are that programming languages have a steeper learning curve than GUI applications and there are often more than one way to do the same thing in a programming language (possibly leading to confusion).\nDebates on which programming language you should learn and use are rampant on the internet and social media. Regardless of which programming language you learn, working with data through code provides a challenge that will open you up to the world of data. You will gain an appreciation for the level of mundanity and complexity that is involved in processing the vast amounts of data in this world. Through working with data yourself, you will also become a better consumer of data and information that you see in your own work, the news, and social media.\nIt all starts with gaining a basic level of proficiency in 1) working with data, 2) data visualization, and 3) statistical computation. The first few chapters of this guide will focus on these three areas. After that, you will be able to explore more advanced levels of data analysis and visualization.",
+    "crumbs": [
+      "What is R?"
+    ]
+  },
+  {
+    "objectID": "chapters/0-install-setup.html",
+    "href": "chapters/0-install-setup.html",
+    "title": "Install and Setup",
+    "section": "",
+    "text": "Install Software\nFirst things first, you need to install R and Positron and configure your environment in a way that is conducive to our workflow in the lab.\nIf you do not have R or Positron installed on your computer, then follow the install instructions below.\nIf you already have R or Positron installed on your computer, then you may want to update your installations.",
+    "crumbs": [
+      "Install and Setup"
+    ]
+  },
+  {
+    "objectID": "chapters/0-install-setup.html#install-software",
+    "href": "chapters/0-install-setup.html#install-software",
+    "title": "Install and Setup",
+    "section": "",
+    "text": "Install R\nDownload and install R from the R Project website.\n\nGo to the R Project website.\nClick on the “CRAN” link under “Download, Packages” in the left-hand menu.\nChoose the 0-Cloud mirror option.\nSelect the base installation (for Windows) or the Latest Release (for Mac) option.\nOpen and run the installer file that you downloaded. Follow the prompts to complete the installation.\n\n\n\nInstall Positron\nDownload and install Positron from the Positron website.\n\nGo to the Positron website.\nClick on the “Download” button.\nSelect the appropriate version for your operating system.\nOpen and run the installer file that you downloaded. Follow the prompts to complete the installation.",
+    "crumbs": [
+      "Install and Setup"
+    ]
+  },
+  {
+    "objectID": "chapters/0-install-setup.html#update-software",
+    "href": "chapters/0-install-setup.html#update-software",
+    "title": "Install and Setup",
+    "section": "Update Software",
+    "text": "Update Software\n\nUpdate R\nWarning: When updating R (not RStudio), it may remove all packages you have installed.\nFirst check what version of R you have installed by opening Positron and checking the R version number in the console when you start it up. If you have an R version older than 4.6.0, then you should update your R installation.\nUse the installr package to update R on Windows. To do this, run the following code in the Positron console:\ninstall.packages(\"installr\")\nlibrary(installr)\nupdateR()\n\n\nUpdate Positron\nTo update Positron, go to the Positron website and download the latest version for your operating system. Then, open and run the installer file that you downloaded. Follow the prompts to complete the installation.",
+    "crumbs": [
+      "Install and Setup"
+    ]
+  },
+  {
+    "objectID": "chapters/0-install-setup.html#getting-to-know-positron",
+    "href": "chapters/0-install-setup.html#getting-to-know-positron",
+    "title": "Install and Setup",
+    "section": "Getting to Know Positron",
+    "text": "Getting to Know Positron\nWhile R is the programming language that we will be using, Positron is the software that we will use to write and run R code. Positron is an Integrated Development Environment (IDE) for R. It provides a user-friendly interface for writing and running R code, as well as tools for debugging and visualizing data.\nOpen Positron and go through the Welcome Tour and Setup Guides to get familiar with the interface and features.",
+    "crumbs": [
+      "Install and Setup"
+    ]
+  },
+  {
+    "objectID": "chapters/0-install-setup.html#configure-positron",
+    "href": "chapters/0-install-setup.html#configure-positron",
+    "title": "Install and Setup",
+    "section": "Configure Positron",
+    "text": "Configure Positron\nHave a lab member or Dr. Tsukahara walk you through the Positron interface, and help you configure the settings to match the lab’s workflow. The following sections provide a summary of the recommended settings.\n\nInstall Extensions\nTo install an extension, click the Extensions icon (left sidebar) and search for the extension name.\nFeel free to explore the available extensions, but the following are recommended for our lab workflow:\n\nFira Code — a fancy monospaced font with ligatures (e.g., != becomes ≠).\nMaterial Icon Theme — icon themes change the look of folders and files.\nOne Dark Pro — a dark theme for your IDE.\nGitHub Theme — a light theme for your IDE.\nvscode-pets — adds a cute pet to your IDE.\n\n\n\nOpening Settings\n\nPress Cmd, or click the gear icon (bottom-left) → Settings.\nIn the Settings window, click the Search settings bar at the top and type in the name of the setting you want to change. The list of settings will filter as you type.\n\n\n\nFiles & whitespace\n\n\n\n\n\n\n\n\nSetting\nSearch for\nAction\n\n\n\n\nFiles: Associations\nfiles associations\nClick Add Item → Item: renv.lock, Value: json\n\n\nFiles: Trim Trailing Whitespace\ntrim trailing\nCheck\n\n\nFiles: Insert Final Newline\ninsert final newline\nCheck\n\n\nFiles: Trim Final Newlines\ntrim final newlines\nCheck\n\n\n\n\n\nEditor\n\n\n\n\n\n\n\n\nSetting\nSearch for\nAction\n\n\n\n\nEditor: Font Family\nfont family\nSet to Fira Code (keep existing fallbacks after it)\n\n\nEditor: Font Ligatures\nfont ligatures\nCheck\n\n\nEditor: Font Size\neditor font size\nSet to 14\n\n\nEditor: Format On Type\nformat on type\nCheck\n\n\nEditor: Tab Size\ntab size\nSet to 2\n\n\nEditor: Detect Indentation\ndetect indentation\nUncheck\n\n\nEditor: Auto Indent\nauto indent\nDropdown → full\n\n\nEditor: Wrapping Indent\nwrapping indent\nDropdown → indent\n\n\nEditor: Default Formatter\ndefault formatter\nDropdown → Positron R (positron.positron-r)\n\n\n\n\n\nQuarto\n\n\n\n\n\n\n\n\nSetting\nSearch for\nAction\n\n\n\n\nQuarto › Cells › Background: Color\nquarto background color\nDropdown → useTheme\n\n\nQuarto › Visual Editor: Markdown Wrap\nquarto markdown wrap\nDropdown → sentence\n\n\nQuarto › Visual Editor: Default List Spacing\nquarto list spacing\nDropdown → tight\n\n\n\n\n\nPositron & keybindings\n\n\n\n\n\n\n\n\nSetting\nSearch for\nAction\n\n\n\n\nPositron › Assistant: Enable\npositron assistant enable\nCheck\n\n\nWorkbench › Keybindings: Rstudio Keybindings\nrstudio keybindings\nCheck\n\n\n\n\n\nWorkbench, window & appearance\n\n\n\n\n\n\n\n\nSetting\nSearch for\nAction\n\n\n\n\nWorkbench: Startup Editor\nstartup editor\nDropdown → readme\n\n\nSymbols: Hides Explorer Arrows\nhides explorer arrows\nUncheck (needs Symbols extension)\n\n\nWindow: Restore Windows\nrestore windows\nDropdown → none\n\n\nWindow: Close When Empty\nclose when empty\nCheck\n\n\n\nIcon theme (vscode-icons): set this via the picker rather than search — open the Command Palette (Cmd/Ctrl+Shift+P) → Preferences: File Icon Theme → choose VSCode Icons.\n\n\n## Git & GitHub\n\n\n\n\n\n\n\n\nSetting\nSearch for\nAction\n\n\n\n\nGit: Autofetch\ngit autofetch\nCheck\n\n\nGit: Enable Smart Commit\nsmart commit\nCheck\n\n\nGit: Confirm Sync\nconfirm sync\nUncheck\n\n\nGitHub › Copilot › Next Edit Suggestions: Enabled\nnext edit suggestions\nCheck (needs Copilot extension)\n\n\n\n\n\nSpecial cases\nMarkdown-only whitespace override (\"[markdown]\": { trimTrailingWhitespace: false }): in the Settings search bar type @lang:markdown, find Trim Trailing Whitespace, and uncheck it. The funnel scopes that single change to Markdown only and writes the language block for you.\nEditor: Rulers ([80]): this array has no graphical control. Searching for rulers only offers an Edit in settings.json link, so this one entry must stay in JSON — add \"editor.rulers\": [80].",
+    "crumbs": [
+      "Install and Setup"
+    ]
+  }
+]
