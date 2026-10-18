@@ -1,0 +1,22 @@
+project:
+  type: book
+
+book:
+  title: "CALM Lab useRguide"
+  author: "Jason Tsukahara"
+  date: today
+  chapters:
+    - index.qmd
+    - chapters/0-what-is-r.qmd
+    - chapters/0-install-setup.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt

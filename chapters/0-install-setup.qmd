@@ -1,0 +1,147 @@
+# Install and Setup {.unnumbered}
+
+First things first, you need to install R and Positron and configure your environment in a way that is conducive to our workflow in the lab.
+
+If you do not have R or Positron installed on your computer, then follow the install instructions below.
+
+If you already have R or Positron installed on your computer, then you may want to [update your installations](#update-software).
+
+## Install Software
+
+### Install R
+
+Download and install R from the [R Project website](https://www.r-project.org/).
+
+1.  Go to the [R Project website](https://www.r-project.org/).
+2.  Click on the "CRAN" link under "Download, Packages" in the left-hand menu.
+3.  Choose the 0-Cloud mirror option.
+4.  Select the **base** installation (for Windows) or the **Latest Release** (for Mac) option.
+5.  Open and run the installer file that you downloaded. Follow the prompts to complete the installation.
+
+
+### Install Positron
+
+Download and install Positron from the [Positron website](https://posit.co/download/rstudio-desktop/).
+
+1.  Go to the [Positron website](https://posit.co/download/rstudio-desktop/).
+2.  Click on the "Download" button.
+3.  Select the appropriate version for your operating system.
+4.  Open and run the installer file that you downloaded. Follow the prompts to complete the installation.
+
+## Update Software
+
+### Update R
+
+*Warning: When updating R (not RStudio), it may remove all packages you have installed.*
+
+First check what version of R you have installed by opening Positron and checking the R version number in the console when you start it up. If you have an R version older than 4.6.0, then you should update your R installation.
+
+Use the [installr](https://cran.r-project.org/web/packages/installr/index.html) package to update R on Windows. To do this, run the following code in the Positron console:
+
+```r
+install.packages("installr")
+library(installr)
+updateR()
+```
+
+### Update Positron
+
+To update Positron, go to the [Positron website](https://posit.co/download/rstudio-desktop/) and download the latest version for your operating system. Then, open and run the installer file that you downloaded. Follow the prompts to complete the installation.
+
+## Getting to Know Positron
+
+While R is the programming language that we will be using, Positron is the software that we will use to write and run R code. Positron is an Integrated Development Environment (IDE) for R. It provides a user-friendly interface for writing and running R code, as well as tools for debugging and visualizing data.
+
+Open Positron and go through the Welcome Tour and Setup Guides to get familiar with the interface and features.
+
+## Configure Positron
+
+Have a lab member or Dr. Tsukahara walk you through the Positron interface, and help you configure the settings to match the lab's workflow. The following sections provide a summary of the recommended settings.
+
+### Install Extensions
+
+To install an extension, click the **Extensions** icon (left sidebar) and search for the extension name.
+
+Feel free to explore the available extensions, but the following are recommended for our lab workflow:
+
+- **Fira Code** — a fancy monospaced font with ligatures (e.g., `!=` becomes ≠).
+- **Material Icon Theme** — icon themes change the look of folders and files.
+- **One Dark Pro** — a dark theme for your IDE.
+- **GitHub Theme** — a light theme for your IDE.
+- **vscode-pets** — adds a cute pet to your IDE.
+
+### Opening Settings
+
+- Press <kbd>Cmd,</kbd> or click the gear icon (bottom-left) → **Settings**.
+- In the Settings window, click the **Search settings** bar at the top and type in the name of the setting you want to change. The list of settings will filter as you type.
+
+### Files & whitespace
+
+| Setting | Search for | Action |
+|---|---|---|
+| Files: Associations | `files associations` | Click **Add Item** → Item: `renv.lock`, Value: `json` |
+| Files: Trim Trailing Whitespace | `trim trailing` | Check |
+| Files: Insert Final Newline | `insert final newline` | Check |
+| Files: Trim Final Newlines | `trim final newlines` | Check |
+
+### Editor
+
+| Setting | Search for | Action |
+|---|---|---|
+| Editor: Font Family | `font family` | Set to `Fira Code` (keep existing fallbacks after it) |
+| Editor: Font Ligatures | `font ligatures` | Check |
+| Editor: Font Size | `editor font size` | Set to `14` |
+| Editor: Format On Type | `format on type` | Check |
+| Editor: Tab Size | `tab size` | Set to `2` |
+| Editor: Detect Indentation | `detect indentation` | **Uncheck** |
+| Editor: Auto Indent | `auto indent` | Dropdown → `full` |
+| Editor: Wrapping Indent | `wrapping indent` | Dropdown → `indent` |
+| Editor: Default Formatter | `default formatter` | Dropdown → **Positron R** (`positron.positron-r`) |
+
+### Quarto
+
+| Setting | Search for | Action |
+|---|---|---|
+| Quarto › Cells › Background: Color | `quarto background color` | Dropdown → `useTheme` |
+| Quarto › Visual Editor: Markdown Wrap | `quarto markdown wrap` | Dropdown → `sentence` |
+| Quarto › Visual Editor: Default List Spacing | `quarto list spacing` | Dropdown → `tight` |
+
+### Positron & keybindings
+
+| Setting | Search for | Action |
+|---|---|---|
+| Positron › Assistant: Enable | `positron assistant enable` | Check |
+| Workbench › Keybindings: Rstudio Keybindings | `rstudio keybindings` | Check |
+
+### Workbench, window & appearance
+
+| Setting | Search for | Action |
+|---|---|---|
+| Workbench: Startup Editor | `startup editor` | Dropdown → `readme` |
+| Symbols: Hides Explorer Arrows | `hides explorer arrows` | **Uncheck** (needs Symbols extension) |
+| Window: Restore Windows | `restore windows` | Dropdown → `none` |
+| Window: Close When Empty | `close when empty` | Check |
+
+**Icon theme** (`vscode-icons`): set this via the picker rather than search —
+open the Command Palette (**Cmd/Ctrl+Shift+P**) → **Preferences: File Icon
+Theme** → choose **VSCode Icons**.
+
+### ## Git & GitHub
+
+| Setting | Search for | Action |
+|---|---|---|
+| Git: Autofetch | `git autofetch` | Check |
+| Git: Enable Smart Commit | `smart commit` | Check |
+| Git: Confirm Sync | `confirm sync` | **Uncheck** |
+| GitHub › Copilot › Next Edit Suggestions: Enabled | `next edit suggestions` | Check (needs Copilot extension) |
+
+### Special cases
+
+**Markdown-only whitespace override** (`"[markdown]": { trimTrailingWhitespace:
+false }`): in the Settings search bar type `@lang:markdown`, find **Trim Trailing
+Whitespace**, and **uncheck** it. The funnel scopes that single change to
+Markdown only and writes the language block for you.
+
+**Editor: Rulers** (`[80]`): this array has no graphical control. Searching for
+`rulers` only offers an **Edit in settings.json** link, so this one entry must
+stay in JSON — add `"editor.rulers": [80]`.

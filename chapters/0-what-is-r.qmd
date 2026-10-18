@@ -1,0 +1,21 @@
+# What is R? {.unnumbered}
+
+According to the R website
+
+> R is a free software environment for statistical computing and graphics.
+
+Let's unpack this.
+
+-   Free is nice!
+
+-   Statistical computing is a general term referring to a large class of techniques that involves statistics, machine learning, and more.
+
+-   Graphics refers to creating visualizations of data and output from statistical computing.
+
+It's really all about **data**. We live in a world where data is everywhere. Our personal lives, the media, and our work are all filled with data. That data is hidden behind numbers stored in spreadsheets, databases, and other formats. A fundamental skill in the modern world is the ability to analyze and visualize data. R is a tool that can help you do just that.
+
+R is a programming language. There are pros and cons to using a programming language over Excel and GUI (Graphical User Interface) applications with click-and-drag functionality. The pros are related to the fact that programming languages are more flexible, powerful, and reproducible than GUI applications. The cons are that programming languages have a steeper learning curve than GUI applications and there are often more than one way to do the same thing in a programming language (possibly leading to confusion).
+
+Debates on which programming language you should learn and use are rampant on the internet and social media. Regardless of which programming language you learn, working with data through code provides a challenge that will open you up to the world of **data**. You will gain an appreciation for the level of mundanity and complexity that is involved in processing the vast amounts of data in this world. Through working with data yourself, you will also become a better consumer of data and information that you see in your own work, the news, and social media.
+
+It all starts with gaining a [basic]{.underline} level of proficiency in 1) working with data, 2) data visualization, and 3) statistical computation. The first few chapters of this guide will focus on these three areas. After that, you will be able to explore more advanced levels of data analysis and visualization.

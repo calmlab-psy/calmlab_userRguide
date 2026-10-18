@@ -1,0 +1,14 @@
+{
+  "index.qmd": {
+    "index.html": "c609f587"
+  },
+  "references.qmd": {
+    "references.html": "c0b0b95b"
+  },
+  "chapters/0-what-is-r.qmd": {
+    "0-what-is-r.html": "30f71ed0"
+  },
+  "chapters/0-install-setup.qmd": {
+    "0-install-setup.html": "25bf5e73"
+  }
+}
