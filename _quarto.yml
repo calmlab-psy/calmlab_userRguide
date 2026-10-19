@@ -8,8 +8,13 @@ book:
   date: today
   chapters:
     - index.qmd
-    - chapters/0-what-is-r.qmd
-    - chapters/0-install-setup.qmd
+    - 00-what-is-r.qmd
+    - 00-install-setup.qmd
+
+    - part: "Intro to R"
+      chapters:
+        - 01-R-basics.qmd
+
     - references.qmd
 
 bibliography: references.bib
