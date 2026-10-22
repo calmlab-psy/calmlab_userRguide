@@ -1,0 +1,396 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Karla:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* CALM Lab visual system, shared with https://calmlab.science */
+:root {
+  --calm-navy: #2D4B8A;
+  --calm-navy-soft: #2D4B8A20;
+  --calm-ochre: #B8893A;
+  --calm-ochre-soft: #B8893A20;
+  --calm-green: #3A6B4F;
+  --calm-paper: #FFFAF7;
+  --calm-ink: #1A1214;
+  --calm-border: #D8CECC;
+  --calm-white: #FFFFFF;
+  --calm-radius: 16px;
+  --calm-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  --calm-shadow-lift: 0 10px 26px rgba(0, 0, 0, 0.10);
+
+  --bs-body-bg: var(--calm-paper);
+  --bs-body-color: var(--calm-ink);
+  --bs-link-color: var(--calm-navy);
+  --bs-link-hover-color: #1E376A;
+  --bs-primary: var(--calm-navy);
+  --bs-border-color: var(--calm-border);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--calm-paper);
+  color: var(--calm-ink);
+  font-family: "Karla", system-ui, -apple-system, sans-serif;
+  line-height: 1.65;
+}
+
+h1, h2, h3, h4, h5, h6,
+.sidebar-title,
+.sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+  font-family: "Nunito", system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--calm-navy);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2rem, 3vw + 1rem, 3rem); }
+h2 { margin-top: 2.25rem; font-size: clamp(1.45rem, 1.2vw + 1.2rem, 2rem); }
+h3 { font-size: clamp(1.15rem, 0.7vw + 1rem, 1.45rem); }
+
+a {
+  color: var(--calm-navy);
+  font-weight: 600;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+a:hover { color: #1E376A; }
+
+/* Website-inspired page heading marker. */
+main.content > h1:first-child,
+main.content .quarto-title-block h1 {
+  position: relative;
+  padding-left: 1rem;
+}
+
+main.content > h1:first-child::before,
+main.content .quarto-title-block h1::before {
+  position: absolute;
+  top: 0.12em;
+  bottom: 0.12em;
+  left: 0;
+  width: 5px;
+  border-radius: 3px;
+  background: var(--calm-ochre);
+  content: "";
+}
+
+hr {
+  border: 0;
+  border-top: 2px solid var(--calm-ochre);
+  opacity: 1;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--calm-border);
+  border-radius: var(--calm-radius);
+  background: var(--calm-white);
+  box-shadow: var(--calm-shadow);
+}
+
+/* Quarto callouts use the website's card language, with color reserved for meaning. */
+.callout {
+  --calm-callout-color: var(--calm-navy);
+  --calm-callout-tint: #EEF2FB;
+  margin: 1.5rem 0;
+  border: 1px solid var(--calm-border) !important;
+  border-left: 1px solid var(--calm-border) !important;
+  border-radius: var(--calm-radius) !important;
+  background: var(--calm-white) !important;
+  box-shadow: var(--calm-shadow);
+  overflow: hidden;
+}
+
+.callout.callout-note,
+.callout.callout-important {
+  --calm-callout-color: var(--calm-navy);
+  --calm-callout-tint: #EEF2FB;
+}
+
+.callout.callout-tip {
+  --calm-callout-color: var(--calm-green);
+  --calm-callout-tint: #EEF5F0;
+}
+
+.callout.callout-caution,
+.callout.callout-warning {
+  --calm-callout-color: var(--calm-ochre);
+  --calm-callout-tint: #F8F1E5;
+}
+
+.callout .callout-header {
+  border: 0;
+  background: var(--calm-callout-tint) !important;
+  color: var(--calm-callout-color) !important;
+  font-family: "Nunito", system-ui, -apple-system, sans-serif;
+  font-weight: 800;
+}
+
+.callout .callout-icon,
+.callout .callout-icon-container {
+  color: var(--calm-callout-color) !important;
+}
+
+.callout .callout-body-container {
+  padding: 1rem 1.1rem;
+}
+
+.callout .callout-body-container > :last-child {
+  margin-bottom: 0;
+}
+
+code:not(pre code) {
+  padding: 0.14em 0.35em;
+  border: 1px solid var(--calm-border);
+  border-radius: 0.35em;
+  background: #F4EEEA;
+  color: var(--calm-navy);
+}
+
+pre {
+  border: 1px solid var(--calm-border);
+  border-left: 4px solid var(--calm-navy);
+  border-radius: 0 var(--calm-radius) var(--calm-radius) 0;
+  background: #F4EEEA;
+  box-shadow: var(--calm-shadow);
+}
+
+pre code,
+code,
+kbd,
+samp {
+  font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+table {
+  overflow: hidden;
+  border: 1px solid var(--calm-border);
+  border-radius: var(--calm-radius);
+  background: var(--calm-white);
+  box-shadow: var(--calm-shadow);
+}
+
+table thead th {
+  color: var(--calm-navy);
+  background: var(--calm-navy-soft);
+  font-family: "Nunito", system-ui, sans-serif;
+  font-weight: 700;
+}
+
+table tbody tr:nth-child(even) { background: rgba(45, 75, 138, 0.025); }
+
+/* The book's top utility bar echoes the website's navy navbar. */
+#quarto-header .quarto-secondary-nav {
+  border-bottom: 1px solid var(--calm-navy);
+  background: var(--calm-navy);
+  box-shadow: 0 2px 10px rgba(45, 75, 138, 0.14);
+}
+
+#quarto-header .quarto-secondary-nav .container-fluid {
+  min-height: 3.2rem;
+}
+
+#quarto-header .quarto-btn-toggle,
+#quarto-header .quarto-search-button,
+#quarto-header .quarto-page-breadcrumbs,
+#quarto-header .quarto-page-breadcrumbs a,
+#quarto-header .breadcrumb-item.active {
+  color: var(--calm-white);
+}
+
+#quarto-header .quarto-btn-toggle:hover,
+#quarto-header .quarto-search-button:hover {
+  color: var(--calm-white);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Floating white navigation card, using the website's card language. */
+body.nav-sidebar.floating #quarto-sidebar {
+  top: 4.35rem;
+  bottom: 1.25rem;
+  height: auto;
+  margin: 0 0 0 1rem;
+  padding: 0.85rem 0.8rem 1rem;
+  border: 1px solid var(--calm-border);
+  border-radius: var(--calm-radius);
+  background: var(--calm-white);
+  box-shadow: var(--calm-shadow);
+}
+
+#quarto-sidebar .sidebar-header {
+  padding: 0 !important;
+}
+
+#quarto-sidebar .sidebar-title {
+  margin: 0 0 0.8rem;
+  padding: 0.35rem 0.35rem 0.9rem !important;
+  border-bottom: 1px solid var(--calm-border);
+  color: var(--calm-navy);
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+#quarto-sidebar .sidebar-title a {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--calm-navy);
+  text-decoration: none;
+}
+
+#quarto-sidebar .sidebar-title a::before {
+  display: inline-block;
+  width: 2.45rem;
+  height: 2.45rem;
+  flex: 0 0 2.45rem;
+  background: url("../images/calm-lab-mark.png") center / contain no-repeat;
+  content: "";
+}
+
+#quarto-sidebar .sidebar-search {
+  margin: 0 0.25rem 0.8rem;
+}
+
+#quarto-sidebar #quarto-search {
+  border: 0;
+  background: transparent;
+}
+
+#quarto-sidebar #quarto-search .aa-Autocomplete {
+  width: 100%;
+}
+
+#quarto-sidebar #quarto-search .aa-Form {
+  min-height: 2.25rem;
+  border: 1px solid var(--calm-border);
+  border-radius: 999px;
+  background: var(--calm-paper);
+  box-shadow: none;
+}
+
+#quarto-sidebar #quarto-search .aa-Input {
+  color: var(--calm-ink);
+  font-family: "Karla", system-ui, sans-serif;
+}
+
+#quarto-sidebar #quarto-search .aa-Input::placeholder {
+  color: #766E70;
+}
+
+#quarto-sidebar .sidebar-item-container { margin: 0.12rem 0; }
+
+#quarto-sidebar .sidebar-item-text,
+#quarto-sidebar .sidebar-item-toggle {
+  border-radius: 10px;
+}
+
+#quarto-sidebar .sidebar-link {
+  padding: 0.45rem 0.6rem;
+  color: var(--calm-ink);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+#quarto-sidebar .sidebar-link:hover {
+  color: var(--calm-navy);
+  background: var(--calm-navy-soft);
+}
+
+#quarto-sidebar .sidebar-link.active {
+  padding-left: 0.6rem;
+  border-left: 0;
+  color: var(--calm-navy);
+  background: var(--calm-navy-soft);
+  font-weight: 700;
+}
+
+#quarto-sidebar .sidebar-item-section > .sidebar-item-container > .sidebar-item-text {
+  padding: 0.75rem 0.6rem 0.3rem;
+  color: var(--calm-navy);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+#quarto-sidebar .sidebar-item-toggle {
+  color: var(--calm-ochre);
+}
+
+/* Keep the reading column calm and comfortably narrow. */
+main.content {
+  max-width: 78ch;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.page-columns .content {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+#TOC .nav-link {
+  color: var(--calm-ink);
+  font-size: 0.9rem;
+}
+
+#TOC .nav-link:hover {
+  color: var(--calm-navy) !important;
+  border-left-color: var(--calm-ochre) !important;
+  font-weight: 700;
+}
+
+#TOC .nav-link.active {
+  color: var(--calm-navy) !important;
+  border-left-color: var(--calm-ochre) !important;
+  font-weight: 700;
+}
+
+/* The homepage is intentionally a clean welcome page rather than a metadata page. */
+.home-page #title-block-header,
+.home-page #quarto-margin-sidebar {
+  display: none !important;
+}
+
+.page-navigation {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--calm-border);
+}
+
+.page-navigation a {
+  border-radius: 10px;
+  color: var(--calm-navy);
+}
+
+@media (max-width: 991.98px) {
+  body.nav-sidebar.floating #quarto-sidebar {
+    top: 3.2rem;
+    bottom: 0;
+    margin: 0;
+    border-width: 0 1px 0 0;
+    border-radius: 0;
+    box-shadow: var(--calm-shadow-lift);
+  }
+
+  main.content { padding-top: 1.5rem; }
+}
+
+@media (max-width: 640px) {
+  #quarto-sidebar .sidebar-title a::before {
+    width: 2rem;
+    height: 2rem;
+    flex-basis: 2rem;
+  }
+
+  main.content > h1:first-child,
+  main.content .quarto-title-block h1 {
+    padding-left: 0.8rem;
+  }
+}

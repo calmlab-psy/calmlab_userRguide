@@ -1,56 +1,6 @@
-# Install and Setup {.unnumbered}
+# Positron {.unnumbered}
 
-First things first, you need to install R and Positron and configure your environment in a way that is conducive to our workflow in the lab.
-
-If you do not have R or Positron installed on your computer, then follow the install instructions below.
-
-If you already have R or Positron installed on your computer, then you may want to [update your installations](#update-software).
-
-## Install Software
-
-### Install R
-
-Download and install R from the [R Project website](https://www.r-project.org/).
-
-1.  Go to the [R Project website](https://www.r-project.org/).
-2.  Click on the "CRAN" link under "Download, Packages" in the left-hand menu.
-3.  Choose the 0-Cloud mirror option.
-4.  Select the **base** installation (for Windows) or the **Latest Release** (for Mac) option.
-5.  Open and run the installer file that you downloaded. Follow the prompts to complete the installation.
-
-
-### Install Positron
-
-Download and install Positron from the [Positron website](https://posit.co/download/rstudio-desktop/).
-
-1.  Go to the [Positron website](https://posit.co/download/rstudio-desktop/).
-2.  Click on the "Download" button.
-3.  Select the appropriate version for your operating system.
-4.  Open and run the installer file that you downloaded. Follow the prompts to complete the installation.
-
-## Update Software
-
-### Update R
-
-*Warning: When updating R (not RStudio), it may remove all packages you have installed.*
-
-First check what version of R you have installed by opening Positron and checking the R version number in the console when you start it up. If you have an R version older than 4.6.0, then you should update your R installation.
-
-Use the [installr](https://cran.r-project.org/web/packages/installr/index.html) package to update R on Windows. To do this, run the following code in the Positron console:
-
-```r
-install.packages("installr")
-library(installr)
-updateR()
-```
-
-### Update Positron
-
-To update Positron, go to the [Positron website](https://posit.co/download/rstudio-desktop/) and download the latest version for your operating system. Then, open and run the installer file that you downloaded. Follow the prompts to complete the installation.
-
-## Getting to Know Positron
-
-While R is the programming language that we will be using, Positron is the software that we will use to write and run R code. Positron is an Integrated Development Environment (IDE) for R. It provides a user-friendly interface for writing and running R code, as well as tools for debugging and visualizing data.
+While R is the programming language that you will be using, Positron is the software that you will use to write and run R code. It provides a user-friendly interface for writing and running R code, managing files and projects, and visualizing data. It also includes features such as syntax highlighting, code completion, and debugging tools that make it easier to write and troubleshoot R code.
 
 Open Positron and go through the Welcome Tour and Setup Guides to get familiar with the interface and features.
 
@@ -70,12 +20,13 @@ Feel free to explore the available extensions, but the following are recommended
 - **GitHub Theme** — a light theme for your IDE.
 - **vscode-pets** — adds a cute pet to your IDE.
 
-### Opening Settings
+### Modify Settings
 
-- Press <kbd>Cmd,</kbd> or click the gear icon (bottom-left) → **Settings**.
+- Press <kbd>⌘</kbd>+<kbd>,</kbd> (macOS) or <kbd>Ctrl</kbd>+<kbd>,</kbd>
+	(Windows/Linux), or click the gear icon (bottom-left) → **Settings**.
 - In the Settings window, click the **Search settings** bar at the top and type in the name of the setting you want to change. The list of settings will filter as you type.
 
-### Files & whitespace
+#### Files & whitespace
 
 | Setting | Search for | Action |
 |---|---|---|
@@ -84,7 +35,7 @@ Feel free to explore the available extensions, but the following are recommended
 | Files: Insert Final Newline | `insert final newline` | Check |
 | Files: Trim Final Newlines | `trim final newlines` | Check |
 
-### Editor
+#### Editor
 
 | Setting | Search for | Action |
 |---|---|---|
@@ -98,7 +49,7 @@ Feel free to explore the available extensions, but the following are recommended
 | Editor: Wrapping Indent | `wrapping indent` | Dropdown → `indent` |
 | Editor: Default Formatter | `default formatter` | Dropdown → **Positron R** (`positron.positron-r`) |
 
-### Quarto
+#### Quarto
 
 | Setting | Search for | Action |
 |---|---|---|
@@ -106,14 +57,14 @@ Feel free to explore the available extensions, but the following are recommended
 | Quarto › Visual Editor: Markdown Wrap | `quarto markdown wrap` | Dropdown → `sentence` |
 | Quarto › Visual Editor: Default List Spacing | `quarto list spacing` | Dropdown → `tight` |
 
-### Positron & keybindings
+#### Positron & keybindings
 
 | Setting | Search for | Action |
 |---|---|---|
 | Positron › Assistant: Enable | `positron assistant enable` | Check |
 | Workbench › Keybindings: Rstudio Keybindings | `rstudio keybindings` | Check |
 
-### Workbench, window & appearance
+#### Workbench, window & appearance
 
 | Setting | Search for | Action |
 |---|---|---|
@@ -123,10 +74,11 @@ Feel free to explore the available extensions, but the following are recommended
 | Window: Close When Empty | `close when empty` | Check |
 
 **Icon theme** (`vscode-icons`): set this via the picker rather than search —
-open the Command Palette (**Cmd/Ctrl+Shift+P**) → **Preferences: File Icon
+open the Command Palette (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on macOS or
+<kbd>Ctrl</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on Windows/Linux) → **Preferences: File Icon
 Theme** → choose **VSCode Icons**.
 
-### ## Git & GitHub
+#### ## Git & GitHub
 
 | Setting | Search for | Action |
 |---|---|---|
@@ -135,7 +87,7 @@ Theme** → choose **VSCode Icons**.
 | Git: Confirm Sync | `confirm sync` | **Uncheck** |
 | GitHub › Copilot › Next Edit Suggestions: Enabled | `next edit suggestions` | Check (needs Copilot extension) |
 
-### Special cases
+#### Special cases
 
 **Markdown-only whitespace override** (`"[markdown]": { trimTrailingWhitespace:
 false }`): in the Settings search bar type `@lang:markdown`, find **Trim Trailing
@@ -145,3 +97,21 @@ Markdown only and writes the language block for you.
 **Editor: Rulers** (`[80]`): this array has no graphical control. Searching for
 `rulers` only offers an **Edit in settings.json** link, so this one entry must
 stay in JSON — add `"editor.rulers": [80]`.
+
+## Projects
+
+A project is a folder on your computer that contains all the folders and files related to a specific project or study. In Positron, you can create a project workspace simply by opening a folder in Positron – nothing else required. Once you open a folder in Positron, it will be treated as a project workspace, and you can start working with the files and folders within that folder. The next time you open Positron, it will provide a list of recently opened folders, allowing you to quickly access your project workspaces.
+
+**Go ahead and create a new project folder on your computer for this useRguide.** You can name the folder something like `calmlab_useRguide`. Once you have created the folder, open it in Positron to start working on the useRguide.
+
+## Manage Folders and Files
+
+You can manage your folders and files directly in Positron itself. You can create new folders and files, rename them, move them around, and delete them as needed. You can also open different file types, beyond R scripts, such as PDFs and images, directly in Positron. You can also use the built-in file explorer to navigate through your project folders and files.
+
+### Create Folders
+
+![Create Folders](images/create_folder.gif){width=40% fig-align="left"}
+
+### Create Files
+
+![Create Files](images/create_file.gif){width=60% fig-align="left"}

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Install and Setup – CALM Lab useRguide</title>
+<title>Installation – CALM Lab useRguide</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -71,7 +71,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-R-basics.html" rel="next">
+<link href="./00-positron.html" rel="next">
 <link href="./00-what-is-r.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d3f7f8e73c8d287b30bcf59c2b563615.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2ee413d740d16b8b08ac6da2e0a3f91b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -112,6 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }</script>
 
 
+<link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -123,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-install-setup.html">Install and Setup</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-what-is-r.html">Preface</a></li><li class="breadcrumb-item"><a href="./00-installation.html">Installation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -154,27 +155,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-what-is-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">What is R?</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./00-install-setup.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Install and Setup</span></a>
-  </div>
-</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
- <span class="menu-text">Intro to R</span></a>
+ <span class="menu-text">Preface</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-what-is-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is R?</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-installation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Installation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./00-positron.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Positron</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Getting Started</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-R-basics.html" class="sidebar-item-text sidebar-link">
@@ -209,28 +227,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#update-r" id="toc-update-r" class="nav-link" data-scroll-target="#update-r">Update R</a></li>
   <li><a href="#update-positron" id="toc-update-positron" class="nav-link" data-scroll-target="#update-positron">Update Positron</a></li>
   </ul></li>
-  <li><a href="#getting-to-know-positron" id="toc-getting-to-know-positron" class="nav-link" data-scroll-target="#getting-to-know-positron">Getting to Know Positron</a></li>
-  <li><a href="#configure-positron" id="toc-configure-positron" class="nav-link" data-scroll-target="#configure-positron">Configure Positron</a>
-  <ul class="collapse">
-  <li><a href="#install-extensions" id="toc-install-extensions" class="nav-link" data-scroll-target="#install-extensions">Install Extensions</a></li>
-  <li><a href="#opening-settings" id="toc-opening-settings" class="nav-link" data-scroll-target="#opening-settings">Opening Settings</a></li>
-  <li><a href="#files-whitespace" id="toc-files-whitespace" class="nav-link" data-scroll-target="#files-whitespace">Files &amp; whitespace</a></li>
-  <li><a href="#editor" id="toc-editor" class="nav-link" data-scroll-target="#editor">Editor</a></li>
-  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
-  <li><a href="#positron-keybindings" id="toc-positron-keybindings" class="nav-link" data-scroll-target="#positron-keybindings">Positron &amp; keybindings</a></li>
-  <li><a href="#workbench-window-appearance" id="toc-workbench-window-appearance" class="nav-link" data-scroll-target="#workbench-window-appearance">Workbench, window &amp; appearance</a></li>
-  <li><a href="#git-github" id="toc-git-github" class="nav-link" data-scroll-target="#git-github">## Git &amp; GitHub</a></li>
-  <li><a href="#special-cases" id="toc-special-cases" class="nav-link" data-scroll-target="#special-cases">Special cases</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./00-what-is-r.html">Preface</a></li><li class="breadcrumb-item"><a href="./00-installation.html">Installation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Install and Setup</h1>
+<h1 class="title">Installation</h1>
 </div>
 
 
@@ -288,284 +293,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="update-positron" class="level3">
 <h3 class="anchored" data-anchor-id="update-positron">Update Positron</h3>
 <p>To update Positron, go to the <a href="https://posit.co/download/rstudio-desktop/">Positron website</a> and download the latest version for your operating system. Then, open and run the installer file that you downloaded. Follow the prompts to complete the installation.</p>
-</section>
-</section>
-<section id="getting-to-know-positron" class="level2">
-<h2 class="anchored" data-anchor-id="getting-to-know-positron">Getting to Know Positron</h2>
-<p>While R is the programming language that we will be using, Positron is the software that we will use to write and run R code. Positron is an Integrated Development Environment (IDE) for R. It provides a user-friendly interface for writing and running R code, as well as tools for debugging and visualizing data.</p>
-<p>Open Positron and go through the Welcome Tour and Setup Guides to get familiar with the interface and features.</p>
-</section>
-<section id="configure-positron" class="level2">
-<h2 class="anchored" data-anchor-id="configure-positron">Configure Positron</h2>
-<p>Have a lab member or Dr.&nbsp;Tsukahara walk you through the Positron interface, and help you configure the settings to match the lab’s workflow. The following sections provide a summary of the recommended settings.</p>
-<section id="install-extensions" class="level3">
-<h3 class="anchored" data-anchor-id="install-extensions">Install Extensions</h3>
-<p>To install an extension, click the <strong>Extensions</strong> icon (left sidebar) and search for the extension name.</p>
-<p>Feel free to explore the available extensions, but the following are recommended for our lab workflow:</p>
-<ul>
-<li><strong>Fira Code</strong> — a fancy monospaced font with ligatures (e.g., <code>!=</code> becomes ≠).</li>
-<li><strong>Material Icon Theme</strong> — icon themes change the look of folders and files.</li>
-<li><strong>One Dark Pro</strong> — a dark theme for your IDE.</li>
-<li><strong>GitHub Theme</strong> — a light theme for your IDE.</li>
-<li><strong>vscode-pets</strong> — adds a cute pet to your IDE.</li>
-</ul>
-</section>
-<section id="opening-settings" class="level3">
-<h3 class="anchored" data-anchor-id="opening-settings">Opening Settings</h3>
-<ul>
-<li>Press <kbd>Cmd,</kbd> or click the gear icon (bottom-left) → <strong>Settings</strong>.</li>
-<li>In the Settings window, click the <strong>Search settings</strong> bar at the top and type in the name of the setting you want to change. The list of settings will filter as you type.</li>
-</ul>
-</section>
-<section id="files-whitespace" class="level3">
-<h3 class="anchored" data-anchor-id="files-whitespace">Files &amp; whitespace</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Search for</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Files: Associations</td>
-<td><code>files associations</code></td>
-<td>Click <strong>Add Item</strong> → Item: <code>renv.lock</code>, Value: <code>json</code></td>
-</tr>
-<tr class="even">
-<td>Files: Trim Trailing Whitespace</td>
-<td><code>trim trailing</code></td>
-<td>Check</td>
-</tr>
-<tr class="odd">
-<td>Files: Insert Final Newline</td>
-<td><code>insert final newline</code></td>
-<td>Check</td>
-</tr>
-<tr class="even">
-<td>Files: Trim Final Newlines</td>
-<td><code>trim final newlines</code></td>
-<td>Check</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="editor" class="level3">
-<h3 class="anchored" data-anchor-id="editor">Editor</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Search for</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Editor: Font Family</td>
-<td><code>font family</code></td>
-<td>Set to <code>Fira Code</code> (keep existing fallbacks after it)</td>
-</tr>
-<tr class="even">
-<td>Editor: Font Ligatures</td>
-<td><code>font ligatures</code></td>
-<td>Check</td>
-</tr>
-<tr class="odd">
-<td>Editor: Font Size</td>
-<td><code>editor font size</code></td>
-<td>Set to <code>14</code></td>
-</tr>
-<tr class="even">
-<td>Editor: Format On Type</td>
-<td><code>format on type</code></td>
-<td>Check</td>
-</tr>
-<tr class="odd">
-<td>Editor: Tab Size</td>
-<td><code>tab size</code></td>
-<td>Set to <code>2</code></td>
-</tr>
-<tr class="even">
-<td>Editor: Detect Indentation</td>
-<td><code>detect indentation</code></td>
-<td><strong>Uncheck</strong></td>
-</tr>
-<tr class="odd">
-<td>Editor: Auto Indent</td>
-<td><code>auto indent</code></td>
-<td>Dropdown → <code>full</code></td>
-</tr>
-<tr class="even">
-<td>Editor: Wrapping Indent</td>
-<td><code>wrapping indent</code></td>
-<td>Dropdown → <code>indent</code></td>
-</tr>
-<tr class="odd">
-<td>Editor: Default Formatter</td>
-<td><code>default formatter</code></td>
-<td>Dropdown → <strong>Positron R</strong> (<code>positron.positron-r</code>)</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="quarto" class="level3">
-<h3 class="anchored" data-anchor-id="quarto">Quarto</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Search for</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Quarto › Cells › Background: Color</td>
-<td><code>quarto background color</code></td>
-<td>Dropdown → <code>useTheme</code></td>
-</tr>
-<tr class="even">
-<td>Quarto › Visual Editor: Markdown Wrap</td>
-<td><code>quarto markdown wrap</code></td>
-<td>Dropdown → <code>sentence</code></td>
-</tr>
-<tr class="odd">
-<td>Quarto › Visual Editor: Default List Spacing</td>
-<td><code>quarto list spacing</code></td>
-<td>Dropdown → <code>tight</code></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="positron-keybindings" class="level3">
-<h3 class="anchored" data-anchor-id="positron-keybindings">Positron &amp; keybindings</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Search for</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Positron › Assistant: Enable</td>
-<td><code>positron assistant enable</code></td>
-<td>Check</td>
-</tr>
-<tr class="even">
-<td>Workbench › Keybindings: Rstudio Keybindings</td>
-<td><code>rstudio keybindings</code></td>
-<td>Check</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="workbench-window-appearance" class="level3">
-<h3 class="anchored" data-anchor-id="workbench-window-appearance">Workbench, window &amp; appearance</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Search for</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Workbench: Startup Editor</td>
-<td><code>startup editor</code></td>
-<td>Dropdown → <code>readme</code></td>
-</tr>
-<tr class="even">
-<td>Symbols: Hides Explorer Arrows</td>
-<td><code>hides explorer arrows</code></td>
-<td><strong>Uncheck</strong> (needs Symbols extension)</td>
-</tr>
-<tr class="odd">
-<td>Window: Restore Windows</td>
-<td><code>restore windows</code></td>
-<td>Dropdown → <code>none</code></td>
-</tr>
-<tr class="even">
-<td>Window: Close When Empty</td>
-<td><code>close when empty</code></td>
-<td>Check</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Icon theme</strong> (<code>vscode-icons</code>): set this via the picker rather than search — open the Command Palette (<strong>Cmd/Ctrl+Shift+P</strong>) → <strong>Preferences: File Icon Theme</strong> → choose <strong>VSCode Icons</strong>.</p>
-</section>
-<section id="git-github" class="level3">
-<h3 class="anchored" data-anchor-id="git-github">## Git &amp; GitHub</h3>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Search for</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Git: Autofetch</td>
-<td><code>git autofetch</code></td>
-<td>Check</td>
-</tr>
-<tr class="even">
-<td>Git: Enable Smart Commit</td>
-<td><code>smart commit</code></td>
-<td>Check</td>
-</tr>
-<tr class="odd">
-<td>Git: Confirm Sync</td>
-<td><code>confirm sync</code></td>
-<td><strong>Uncheck</strong></td>
-</tr>
-<tr class="even">
-<td>GitHub › Copilot › Next Edit Suggestions: Enabled</td>
-<td><code>next edit suggestions</code></td>
-<td>Check (needs Copilot extension)</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="special-cases" class="level3">
-<h3 class="anchored" data-anchor-id="special-cases">Special cases</h3>
-<p><strong>Markdown-only whitespace override</strong> (<code>"[markdown]": { trimTrailingWhitespace: false }</code>): in the Settings search bar type <code>@lang:markdown</code>, find <strong>Trim Trailing Whitespace</strong>, and <strong>uncheck</strong> it. The funnel scopes that single change to Markdown only and writes the language block for you.</p>
-<p><strong>Editor: Rulers</strong> (<code>[80]</code>): this array has no graphical control. Searching for <code>rulers</code> only offers an <strong>Edit in settings.json</strong> link, so this one entry must stay in JSON — add <code>"editor.rulers": [80]</code>.</p>
 
 
 </section>
@@ -979,8 +706,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-R-basics.html" class="pagination-link" aria-label="R Basics">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R Basics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./00-positron.html" class="pagination-link" aria-label="Positron">
+        <span class="nav-page-text">Positron</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

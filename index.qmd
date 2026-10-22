@@ -1,3 +1,8 @@
+---
+body-classes: home-page
+title-block: false
+---
+
 # Welcome {.unnumbered}
 
 This is the useRguide for the CALM Lab. It is intended to be a resource for new lab members to get up to speed with the tools and workflows that we use in the lab. It is also a reference for existing lab members to refresh their knowledge or learn new skills.

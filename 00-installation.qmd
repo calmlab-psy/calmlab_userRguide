@@ -1,0 +1,49 @@
+# Installation {.unnumbered}
+
+First things first, you need to install R and Positron and configure your environment in a way that is conducive to our workflow in the lab.
+
+If you do not have R or Positron installed on your computer, then follow the install instructions below.
+
+If you already have R or Positron installed on your computer, then you may want to [update your installations](#update-software).
+
+## Install Software
+
+### Install R
+
+Download and install R from the [R Project website](https://www.r-project.org/).
+
+1.  Go to the [R Project website](https://www.r-project.org/).
+2.  Click on the "CRAN" link under "Download, Packages" in the left-hand menu.
+3.  Choose the 0-Cloud mirror option.
+4.  Select the **base** installation (for Windows) or the **Latest Release** (for Mac) option.
+5.  Open and run the installer file that you downloaded. Follow the prompts to complete the installation.
+
+
+### Install Positron
+
+Download and install Positron from the [Positron website](https://posit.co/download/rstudio-desktop/).
+
+1.  Go to the [Positron website](https://posit.co/download/rstudio-desktop/).
+2.  Click on the "Download" button.
+3.  Select the appropriate version for your operating system.
+4.  Open and run the installer file that you downloaded. Follow the prompts to complete the installation.
+
+## Update Software
+
+### Update R
+
+*Warning: When updating R (not RStudio), it may remove all packages you have installed.*
+
+First check what version of R you have installed by opening Positron and checking the R version number in the console when you start it up. If you have an R version older than 4.6.0, then you should update your R installation.
+
+Use the [installr](https://cran.r-project.org/web/packages/installr/index.html) package to update R on Windows. To do this, run the following code in the Positron console:
+
+```r
+install.packages("installr")
+library(installr)
+updateR()
+```
+
+### Update Positron
+
+To update Positron, go to the [Positron website](https://posit.co/download/rstudio-desktop/) and download the latest version for your operating system. Then, open and run the installer file that you downloaded. Follow the prompts to complete the installation.

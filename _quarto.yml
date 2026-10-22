@@ -8,10 +8,12 @@ book:
   date: today
   chapters:
     - index.qmd
-    - 00-what-is-r.qmd
-    - 00-install-setup.qmd
-
-    - part: "Intro to R"
+    - part: "Preface"
+      chapters:
+        - 00-what-is-r.qmd
+        - 00-installation.qmd
+        - 00-positron.qmd
+    - part: "Getting Started"
       chapters:
         - 01-R-basics.qmd
 
@@ -21,6 +23,8 @@ bibliography: references.bib
 
 format:
   html:
-    theme:
-      - cosmo
-      - brand
+    theme: cosmo
+    mainfont: "Karla"
+    monofont: "Fira Code"
+    css: assets/style.css
+    toc: true

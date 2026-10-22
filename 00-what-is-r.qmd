@@ -1,8 +1,9 @@
 # What is R? {.unnumbered}
 
-According to the R website
+According to the R website:
 
 > R is a free software environment for statistical computing and graphics.
+
 
 Let's unpack this.
 
