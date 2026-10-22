@@ -110,8 +110,8 @@ You can manage your folders and files directly in Positron itself. You can creat
 
 ### Create Folders
 
-![Create Folders](images/create_folder.gif){width=40% fig-align="left"}
+![Create Folders](images/create_folder.gif){width=50% fig-align="left"}
 
 ### Create Files
 
-![Create Files](images/create_file.gif){width=60% fig-align="left"}
+![Create Files](images/create_file.gif){width=70% fig-align="left"}
