@@ -2,6 +2,8 @@ project:
   type: book
   output-dir: docs
 
+number-sections: false
+
 book:
   title: "CALM Lab useRguide"
   author: "Jason Tsukahara"

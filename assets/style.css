@@ -59,15 +59,25 @@ a {
 
 a:hover { color: #1E376A; }
 
-/* Website-inspired page heading marker. */
+/* Page titles stay clean; subtitles carry the website's ochre accent. */
 main.content > h1:first-child,
 main.content .quarto-title-block h1 {
+  padding-left: 0;
+}
+
+main.content .quarto-title-block .subtitle {
+  color: var(--calm-ochre);
+  font-family: "Karla", system-ui, -apple-system, sans-serif;
+  font-weight: 600;
+}
+
+/* Website-inspired section marker for level-two headings. */
+main.content > section > h2 {
   position: relative;
   padding-left: 1rem;
 }
 
-main.content > h1:first-child::before,
-main.content .quarto-title-block h1::before {
+main.content > section > h2::before {
   position: absolute;
   top: 0.12em;
   bottom: 0.12em;
@@ -336,20 +346,48 @@ main.content {
 }
 
 #TOC .nav-link {
+  position: relative;
   color: var(--calm-ink);
   font-size: 0.9rem;
+  border-left: 0 !important;
+}
+
+#TOC .nav-link::before {
+  display: none;
+  position: absolute;
+  top: 0.12em;
+  bottom: 0.12em;
+  left: 0;
+  width: 4px;
+  border-radius: 999px;
+  background: var(--calm-border);
+  content: "";
+}
+
+#TOC > ul > li > .nav-link::before {
+  display: block;
 }
 
 #TOC .nav-link:hover {
   color: var(--calm-navy) !important;
-  border-left-color: var(--calm-ochre) !important;
   font-weight: 700;
+}
+
+#TOC > ul > li > .nav-link:hover::before {
+  background: var(--calm-ochre);
 }
 
 #TOC .nav-link.active {
   color: var(--calm-navy) !important;
-  border-left-color: var(--calm-ochre) !important;
   font-weight: 700;
+}
+
+#TOC > ul > li > .nav-link.active::before {
+  background: var(--calm-ochre);
+}
+
+#TOC > ul > li:has(> ul .nav-link.active) > .nav-link::before {
+  background: var(--calm-ochre);
 }
 
 /* The homepage is intentionally a clean welcome page rather than a metadata page. */
@@ -389,8 +427,7 @@ main.content {
     flex-basis: 2rem;
   }
 
-  main.content > h1:first-child,
-  main.content .quarto-title-block h1 {
+  main.content > section > h2 {
     padding-left: 0.8rem;
   }
 }
