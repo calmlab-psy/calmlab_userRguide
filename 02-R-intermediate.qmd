@@ -1,0 +1,304 @@
+---
+title: "R Intermediate"
+subtitle: "Getting Started"
+execute:
+  echo: true
+  eval: true
+  message: false
+  warning: false
+---
+
+This section will cover some intermediate R programming concepts such as creating your own functions and for loops.
+
+## Prepare
+
+Before starting this section, be sure to have:
+
+📖 Read the [R Basics](01-R-basics.qmd) page
+
+📝 Create a new file **R_intermediate.R** in your project folder.
+
+## Creating Your Own Functions
+
+Understanding how to create your own functions in R can be useful, but it also just helps you better understand how the functions you use in R work. 
+
+Functions allow you to perform more complex operations in R that would normally take multiple steps and lines of code to perform. They also offer flexibility in that you can change the input arguments of a function to perform the same series of operations on different objects, to change a step in the process, or to change the output of the function.
+
+For instnace, let's say we have a vector of values and want to determine how many of those values are greater than a cutoff value (e.g., greater than 5). We could do this in a couple of steps. Let's first work out what those steps need to be. Let's say we have a vector of values, such that 3 of the values are greater than 5.
+
+```{r}
+a <- c(1,7,4,3,2,8,1,9,2,4)
+```
+
+The first step is to create a logical statement that evaluates whether each element in the vector is greater than our cutoff of 5. We can do this with the following code:
+
+```{r}
+above_cutoff <- a > 5
+```
+
+The second step is to count how many of those logical evaluations are `TRUE` (e.g., how many values result in `TRUE` for the statement "is the value greater than 5?"). It turns out that values of `FALSE` are treated as `0` and values of `TRUE` are treated as `1`. Therefore, we can use the `sum()` function to count how many values are `TRUE`. We can do this with the following code:
+
+```{r}
+count <- sum(above_cutoff)
+count
+```
+
+Okay so we have our two steps:
+
+```{r}
+above_cutoff <- a > 5
+count <- sum(above_cutoff)
+```
+
+However, we might change our mind and want to know how many values are greater than 3 rather than 5. We can rewrite this code such that we create a variable `cutoff` that we can change to whatever value we want. We can do this with the following code:
+
+```{r}
+cutoff <- 3
+
+above_cutoff <- a > cutoff
+count <- sum(above_cutoff)
+
+count
+```
+
+This sort of setup can be useful when you have lots of lines of complex code but you want to change only one or two things (e.g., change the cutoff from 5 to 3). The variable you want to change is labelled clearly at the top of the code and you can change it without having to parse through all the code to find where you need to make the change. In this case there are only two lines so it is trivial, but in more complex code it can be a pain to have to find where you need to make the change.
+
+If this is a process you want to do often, you might want to create a function that allows you to perform this same operation on different vectors of values and different cutoff values without having to write out the two-step process each time.
+
+To define a function you use `function()` and assign the output of `function()` to an object, which becomes the name of the function. For instance,
+
+```{r}
+function_name <- function() {
+  
+}
+```
+
+You specify the arguments that the function will take inside of the parentheses of `function()`. For our example, we want to specify two arguments; the vector of values to use as input (`data`) and the cutoff value to use (`cutoff`). **Arguments specified in a function become objects (or variables) passed inside the function**.
+
+```{r}
+cutoff_count <- function(data, cutoff) {
+
+}
+```
+
+Now we need to put the two steps we worked out above inside of the function (just replacing the variable name `a` with `data`). 
+
+```{r}
+cutoff_count <- function(data, cutoff) {
+  above_cutoff <- data > cutoff
+  count <- sum(above_cutoff)
+  return(count)
+}
+```
+
+The `return()` function specifies what the output of the function will be. In this case we want to return the value of `count`. 
+
+Let's test out our function with the vector `a` and a cutoff of `5`.
+
+```{r}
+cutoff_count(data = a, cutoff = 5)
+```
+
+Notice that we are setting the values of the arguments `data` and `cutoff` inside of the function call. It is similar to using the assignment operator `cutoff <- 5`, there is now a variable inside the function called `cutoff` that has a value of `5`. The same is true for the argument `data`. There is now a variable inside the function called `data` that has a value of the vector `a`.
+
+You can also call the function without specifying the argument names, but you need to make sure that the order of the arguments is the same as how they are specified in the function definition. In this case, `data` is the first argument and `cutoff` is the second argument.
+
+```{r}
+cutoff_count(a, 5)
+```
+
+What would happen if we called the function with the arguments in the wrong order?
+
+```{r}
+cutoff_count(5, a)
+```
+
+Why did it result in `r cutoff_count(5, a)`? Because this would be setting `data = 5` and `cutoff = a`. This results in evaluating `data > a` or `5 > c(1,7,4,3,2,8,1,9,2,4)`, which is evaluating whether each element in `a` is less than `5` - the reverse of what we want to do.
+
+**This is important to understand because you may not always specify the argument names when calling a function, but you need to make sure that the order of the arguments is correct. Otherwise you will get unexpected results.**
+
+You can also set default values for arguments in a function. For instance, we could set the default value of `cutoff` to `5`. This means that if we do not specify a value for `cutoff` when calling the function, it will default to `5`.
+
+```{r}
+cutoff_count <- function(data, cutoff = 5) {
+
+  above_cutoff <- data > cutoff
+  count <- sum(above_cutoff)
+
+  return(count)
+}
+```
+
+Then,
+
+```{r}
+cutoff_count(a)
+```
+
+**This is important to understand because most of the time you will not be specifying every argument when calling a function. You will be using the default values for most of the arguments.**
+
+How can you know what the default values are? Use the helper function `?` to see the function definition and the default values for the arguments. For instance, if you type `?mean` in the console, it will show you the function definition for `mean()` and the default values for the arguments.
+
+You can then add more complexity to your function. For instance, if we wanted to add an argument that allows the user to specify whether to evaluate the cutoff as "greater than" or "less than" we could add an argument called `evaluate` that takes a value of either "greater" or "less". Then we could use an if...then statement to evaluate the cutoff based on the value of `evaluate`.
+
+```{r}
+cutoff_count <- function(data, cutoff = 5, evaluate = "greater") {
+
+  if (evaluate == "greater") {
+    above_cutoff <- data > cutoff
+  } else if (evaluate == "less") {
+    above_cutoff <- data < cutoff
+  } else {
+    stop("evaluate must be either 'greater' or 'less'")
+  }
+  count <- sum(above_cutoff)
+
+  return(count)
+}
+```
+
+Then,
+
+```{r}
+cutoff_count(a, evaluate = "less")
+cutoff_count(a, evaluate = "greater")
+```
+
+## For Loops
+
+For loops allow you iterate the same line of code over multiple instances.
+
+Let's say we have a vector of numerical values
+
+```{r}
+c <- c(1,6,3,8,2,9)
+c
+```
+
+and want perform an if...then operation on each of the elements. Let's use the same if...then statement "If the element is greater than 3, then multiply it by 2 - else set it to missing". Let's put the results of this if...then statement into a new vector `d`
+
+What we need to do is **loop** this if...then statement **for** each element in `c`
+
+We can start out by writing the for loop statement
+
+```{r}
+for (i in seq_along(c)) {
+  
+}
+```
+
+This is how it works. The statement inside of parentheses after `for` contains two statements separated by `in`. The first statement is the variable that is going to change it's value over each iteration of the `loop`. **You can name this whatever you want**. In this case I chose the label `i`. The second statement defines all the values that will be used at each iteration. The second statement will always be a vector. In this case the vector is `seq_along(c)`.
+
+`seq_along()` is a function that creates a vector that contains a sequence of numbers from 1 to the length of the object. In this case the object is the vector `c`, which has a length of `6` elements. Therefore `seq_along(c)`, creates a vector containing `r seq_along(c)`.
+
+The `for` `loop` will start with `i` defined as `1`, then on the next iteration the value of `i` will be `2` ... and so until the last element of `seq_along(c)`, which is `6`. We can see how this is working by printing 'i' on each iteration.
+
+```{r}
+for (i in seq_along(c)) {
+ print(i) 
+}
+```
+
+What we will want to do is, on each iteration of the for loop, access the `i`th element of the vector `c`.
+
+Recall, you can access the element in a vector with `[ ]`, for instance `c[1]`. Let's print each `i`th element of `c`.
+
+```{r}
+for (i in seq_along(c)) {
+ print(c[i]) 
+}
+```
+
+Now instead of printing `i` the for loop is printing the value of each element of vector `c`.
+
+Let's use the if...then statement as above
+
+```{r}
+a <- 5
+
+if (a > 3) {
+  a <- a*2
+} else {
+  a <- NA
+}
+
+a
+```
+
+But instead we need to replace `a` with `c[i]`
+
+For now let's just `print()` the output of the if... then statement.
+
+```{r}
+for (i in seq_along(c)) {
+
+  if (c[i] > 3) {
+    print(c[i]*2)
+  } else {
+    print(NA)
+  }
+
+}
+```
+
+You can see that on each iteration the output is either the `i`th element of c multiplied by 2 or `NA`. But just printing things to the console is useless! Let's overwrite the old values in `c` with the new values.
+
+```{r}
+for (i in seq_along(c)) {
+
+  if (c[i] > 3) {
+    c[i] <- c[i]*2
+  } else {
+    c[i] <- NA
+  }
+
+}
+
+c
+```
+
+But what if we want to preserve the original vector `c`? Well we need to put it into a new vector, let's call it vector `d`. This get's a little more complicated but is something you might find yourself doing fairly often so it is good to understand how this works.
+
+But if you are going to do this to a "new" vector that is not yet created you will run into an error.
+
+```{r}
+#| error: true
+
+c <- c(1,6,3,8,2,9)
+
+for (i in seq_along(c)) {
+  if (c[i] > 3) {
+    d[i] <- c[i]*2
+  } else {
+    d[i] <- NA
+  }
+
+}
+```
+
+You first need to create vector `d` - in this case we can create an empty vector.
+
+```{r}
+d <- c()
+```
+
+So the logic of our for loop, if...then statement is such that; on the `i`th iteration - if `c[i]` is greater than 3, then set `d[i]` to `c[i]*2` - else set `d[i]` to `NA`.
+
+```{r}
+c <- c(1,6,3,8,2,9)
+d <- c()
+
+for (i in seq_along(c)) {
+  if (c[i] > 3) {
+    d[i] <- c[i]*2
+  } else {
+    d[i] <- NA
+  }
+  
+}
+
+c
+d
+```
+
+Yay! Good job.

@@ -1,6 +1,6 @@
 ---
 title: "R Basics"
-subtitle: "Intro to R"
+subtitle: "Getting Started"
 execute:
   echo: true
   eval: true

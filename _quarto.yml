@@ -20,6 +20,7 @@ book:
     - part: "Getting Started"
       chapters:
         - 01-R-basics.qmd
+        - 02-R-intermediate.qmd
 
     - references.qmd
 
