@@ -22,6 +22,7 @@ book:
         - 01-R-basics.qmd
         - 02-R-intermediate.qmd
         - 03-intro-data.qmd
+        - 04-generate-report.qmd
 
     - references.qmd
 

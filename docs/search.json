@@ -272,5 +272,93 @@
       "Getting Started",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Working with Data</span>"
     ]
+  },
+  {
+    "objectID": "04-generate-report.html",
+    "href": "04-generate-report.html",
+    "title": "Generating a Report",
+    "section": "",
+    "text": "Prepare\nThe main objective of this section is to learn how to use Quarto Documents to create an HTML report that contains data visualizations and statistical analyses.\nBefore starting this class:",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#what-is-quarto",
+    "href": "04-generate-report.html#what-is-quarto",
+    "title": "Generating a Report",
+    "section": "What is Quarto?",
+    "text": "What is Quarto?\nQuarto documents are a versatile way to create production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more. In fact, this useRguide was created using Quarto documents.\nIn this section, you will learn how to use Quarto documents to create an HTML report that contains data visualizations and statistical analyses. View a sample report to see an example of this kind of document.\n\nR script vs. Quarto\n\nR scripts are for processing data where the output is a data file.\nQuarto documents are for generating reports that contain figures, tables, and statistical analyses.\n\n\n\n\n\n\n\nTip\n\n\n\nYou may want to watch this video for a brief intro to Quarto\n\n\n\n\nStructure\nThere are three types of content that form the structure of a Quarto document.\n\nA YAML header\nMarkdown formatted text\nR code chunks",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#yaml-header",
+    "href": "04-generate-report.html#yaml-header",
+    "title": "Generating a Report",
+    "section": "YAML Header",
+    "text": "YAML Header\nThe YAML header contains metadata about how the document should be rendered and the output format. It is located at the very top of the document and is surrounded by lines of three dashes.\n---\ntitle: \"Title of document\"\nformat: html\n---\nThere are various metadata options you can specify, such as if you want to include a table of contents. To learn about a few of them see the documentation here.\nFor generating a report document I typically like to use the following YAML options:\n---\ntitle: \"Document Title\"\nauthor: Your Name\ndate: today\ntheme: default\nformat:\n  html:\n    code-fold: true\n    code-tools: true\n    code-link: true\n    toc: true\n    toc-depth: 1\n    toc-location: left\n    page-layout: full\n    df-print: paged\nexecute:\n  error: true\n  warning: true\nself-contained: true\neditor_options: \n  chunk_output_type: console\n---\nI am not going to cover what all these options do.\n\nHere is a list of all the HTML format YAML options\nHere is a user guide on creating HTML output",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#markdown-text",
+    "href": "04-generate-report.html#markdown-text",
+    "title": "Generating a Report",
+    "section": "Markdown Text",
+    "text": "Markdown Text\nThe markdown text section is just as if you were writing content in Microsoft Word or Google Docs. You can write up paragraphs of text, create bullet or numbered lists, embed images or web links, create tables, and more.\nThe text is formatted using a language known as Markdown. Markdown is a convenient and flexible way to format text. When a Markdown document is rendered into some output (such as HTML or PDF), the text will be formatted as specified by Markdown syntax.\nThere are a lot of guides on how to use Markdown syntax. I will not cover this so you should check them out on your own. Here is one I reference often: Markdown Cheatsheet\nAdd some markdown text below the YAML header in your open Quarto document.\nHere is some sample text with a numbered list\n\n1. This is first\n2. Second\n3. Third",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#r-code-chunks",
+    "href": "04-generate-report.html#r-code-chunks",
+    "title": "Generating a Report",
+    "section": "R Code Chunks",
+    "text": "R Code Chunks\nA Quarto document (.qmd) is a mixture of markdown text and R code chunks.\n\nCreate an R code chunk\nR code chunks are enclosed with\n```{r}\na &lt;- 1 + 6\n```\nOr might look like:\n\n{r}\n\na &lt;- 1 + 6\n\nYou can create R code chunks with the shortcut:\n\nMac: ⌘ ⌥ i (command + alt/opt + i)\nWindows: ⌃ ⌥ i (ctrl + alt + i)\n\nInsert the following code in the R code chunk\n\nlibrary(palmerpenguins)\n\nhead(penguins)\n\nCreate another R code chunk with the following code\n\nlibrary(ggplot2)\n\nggplot(penguins, aes(species, body_mass_g, color = species)) +\n  geom_jitter(alpha = .7, width = .05, color = \"gray\") +\n  geom_point(stat = \"summary\", fun = mean, na.rm = TRUE, size = 3) +\n  geom_errorbar(stat = \"summary\", fun.data = mean_cl_normal, na.rm = TRUE,\n                width = .2) +\n  scale_color_brewer(palette = \"Set1\", label = \"none\") +\n  guides(color = \"none\") +\n  labs(title = \"Body Mass of Penguin Species\", \n       x = \"Species\", y = \"Body Mass (g)\") +\n  theme_classic()\n\n\n\nExecute R code chunk\nTo run chunks of R code you can click on the green “play” button on the top right of the R code chunk.\n\nGo ahead and do so. You can see that the results of the R code chunks are now displayed in the document.",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#visual-editor",
+    "href": "04-generate-report.html#visual-editor",
+    "title": "Generating a Report",
+    "section": "Visual Editor",
+    "text": "Visual Editor\nBy default, Quarto will open a new document in the visual editor mode. The Quarto visual editor provides a WYSIWYM editing interface.\nIn Source mode, you will see the raw markdown and code elements. On occassion you may find that it is easier to edit a document in Source mode rather than with the Visual editor. You can switch back and forth between the two easily at the top-left of the toolbar",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#render-document",
+    "href": "04-generate-report.html#render-document",
+    "title": "Generating a Report",
+    "section": "Render Document",
+    "text": "Render Document\nWhen you have finalized the content of a Quarto document you will then want to generate the document into the specified output format (e.g., HTML).\nTo render a Quarto document click on Render at the top. This will\n\nGenerate a preview of the document in the Viewer pane\nCreate an HTML file\n\nGo ahead and render the document you just created. Find the generated HTML file and open it. You will notice that it will open in your default web browser.\nThere are some advantages to using an HTML format:\n\nEasily shareable, anyone can open it in a web browser (does not require some other application that might cost money like Microsoft Word)\nCan include elements like\n\nTable of contents\nTabs - can include a lot more content without taking up a lot of space and saves on scrolling through large documents\nCode folding - code chunks can be toggled to hide/show them\nCode download - link to download the Quarto document\nCSS styling\nand more\n\n\nLet’s take a look at some of these elements and more",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
+  },
+  {
+    "objectID": "04-generate-report.html#additional-elements",
+    "href": "04-generate-report.html#additional-elements",
+    "title": "Generating a Report",
+    "section": "Additional Elements",
+    "text": "Additional Elements\n\nHeaders\nHeaders are a great way to organize the content in a Quarto document. Use # to create different header levels:\n# This is a level 1 header\n\n## A level 2 header\n\n### And level 3 header\nHeaders become even more useful with a table of contents and using tabs\n\n\nTable of Contents\nA table of contents is useful to navigate longer documents. It also provides an outline for the viewer to understand the document. You can specify the table of contents layout in the YAML header:\nformat:\n  html:\n    toc: true\n    toc-depth: 1\n    toc-location: left\ntoc-depth will change how many header levels are displayed in the table of contents (toc).\n\n\nTabs\nTabs are a great way to add a lot of content while avoiding having to scroll endlessly through a large document. The syntax for a tabset is\n::: panel-tabset\n## First tab\n\nHere is some content\n\n## A second tab\n\nMore content!\n\n## And third tab\n\nHello!\n:::\nThe second level headers will be used to label the tabs in the document (see below)\nYou can also add multiple tabs easily by going to\n\nInsert -&gt; Tabset…\n\nTabs look like this:\n\nFirst tabA second tabAnd third tab\n\n\nHere is some content\n\n\nMore content!\n\n\nHello!\n\n\n\n\n\nCode Tools\nYou can include a Code menu in the header of your document that provides various tools for readers to interact with the source code. Specify in the YAML\ncode-tools: true\n\n\nCode Folding\nYou may not always want to show the R code chunks in the HTML output. Or you might want to give the viewer a choice to show/hide R code chunks. You can specify code folding in the top-level YAML header or in each code chunk individually\ncode-fold: true\n\n\n\nValue\nBehavior\n\n\n\n\nfalse\nNo folding (default)\n\n\ntrue\nFold code (initially hidden)\n\n\nshow\nFold code (initially shown)\n\n\n\n\n\nR Chunk Options\nSome settings you can change for individual R code chunks. The syntax to do this uses #| in the R code chunk:\n\n\nHide the code!\n```{r}\n#| eval: false\n#| warning: false\n#| message: false\n#| code-fold: show\n#| code-summary: \"Hide the code!\"\n\n1 + 1\n```\n\n\nSome commone ones to change are:\n\n\n\n\n\n\n\nOption\nDescription\n\n\n\n\neval\nEvaluate the code chunk (if false, just echos the code into the output).\n\n\necho\nInclude the source code in output\n\n\noutput\nInclude the results of executing the code in the output (true, false, or asis to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown).\n\n\nwarning\nInclude warnings in the output.\n\n\nerror\nInclude errors in the output (note that this implies that errors executing code will not halt processing of the document).\n\n\ninclude\nCatch all for preventing any output (code or results) from being included (e.g. include: false suppresses all output from the code block).\n\n\n\nSee the Quarto Documentation for more details\n\n\nCSS Styling\nYou can also add CSS styling, either as a separate .css document or at the end of the Quarto document.\nFor instance, here are some of the styling options I used in the sample report:\n\n.tab-content {\n  border-style: none;\n}\n\nh1 {\n  color: #005098;\n}\n\nh2 {\n  color: #96834a !important;\n  font-weight: 600 !important;\n}\n\na {\n  color: #005098;\n}\n\na:hover {\n  color: #96834a !important;\n}",
+    "crumbs": [
+      "Getting Started",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
+    ]
   }
 ]
