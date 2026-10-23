@@ -16,21 +16,15 @@ Before starting this class:
 
 ## What is Quarto?
 
-[Quarto documents](https://quarto.org){target="_blank"} are a versatile way to create production quality articles, presentations, dashboards, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more. In fact, this useRguide was created using Quarto documents.
+In the previous section, you learned how to do a basic transformation of data, visualize the data, and perform a simple statistical analysis. You did this using R scripts. R scripts are great for processing data and generating output files, but they are not ideal for creating reports that contain figures, tables, and statistical analyses. If I were to ask you now, what was that correlation between the two variables you calculated in the previous section, you would have to go back and run each line of code in the R script to find out. 
 
-In this section, you will learn how to use Quarto documents to create an HTML report that contains data visualizations and statistical analyses. View a [sample report](){target="_blank"} to see an example of this kind of document.
+Unlike R scripts, [Quarto documents](https://quarto.org){target="_blank"} allow you to generate a report document that contains the figures, tables, and statistical analyses. You can then go back and view this report at any time to find out what the correlation was - without having to run any code and without having to open Positron or R. The report will open in your default web browser. This report can also be shared with others and they can view the figures, tables, and statistical analyses in a web browser without having to run any code.
 
-### R script vs. Quarto
-
--   R scripts are for processing data where the output is a data file.
-
--   Quarto documents are for generating reports that contain figures, tables, and statistical analyses. 
+In this section, we will take the code you wrote in the previous section and use it to create a report document that contains the figures, tables, and statistical analyses.
 
 ::: callout-tip
-You may want to watch this [video](https://quarto.org/docs/blog/posts/2023-05-15-get-started/){target="_blank"} for a brief intro to Quarto
+You may want to watch this [video](https://quarto.org/docs/blog/posts/2023-05-15-get-started/){target="_blank"} for a brief intro to Quarto.
 :::
-
-### Structure
 
 There are three types of content that form the structure of a Quarto document.
 
@@ -53,87 +47,60 @@ format: html
 
 There are various metadata options you can specify, such as if you want to include a table of contents. To learn about a few of them [see the documentation here](https://quarto.org/docs/output-formats/html-basics.html){target="_blank"}.
 
-For generating a report document I typically like to use the following YAML options:
+For this section, we will keep it simple and just specify the title of the document and the output format. You can add more options later. An HTML format is a good choice for generating a report document because it can be easily shared and viewed in a web browser.
 
-```         
----
-title: "Document Title"
-author: Your Name
-date: today
-theme: default
-format:
-  html:
-    code-fold: true
-    code-tools: true
-    code-link: true
-    toc: true
-    toc-depth: 1
-    toc-location: left
-    page-layout: full
-    df-print: paged
-execute:
-  error: true
-  warning: true
-self-contained: true
-editor_options: 
-  chunk_output_type: console
----
-```
-
-I am not going to cover what all these options do.
-
+::: callout-note
 -   [Here is a list of all the HTML format YAML options](https://quarto.org/docs/reference/formats/html.html){target="_blank"}
 
 -   [Here is a user guide on creating HTML output](https://quarto.org/docs/output-formats/html-basics.html){target="_blank"}
+:::
+
+In the Quarto document you created for this section, add the following YAML header at the top of the document:
+
+```         
+---
+title: "An introduction to generating reports with Quarto"
+format: html
+---
+```
 
 ## Markdown Text
 
-The markdown text section is just as if you were writing content in Microsoft Word or Google Docs. You can write up paragraphs of text, create bullet or numbered lists, embed images or web links, create tables, and more.
+Markdown text is just as if you were writing content in Microsoft Word or Google Docs. You can write up paragraphs of text, create bullet or numbered lists, embed images or web links, create tables, and more. The text is formatted using a language known as **Markdown**. Markdown is a convenient and flexible way to format text. When a Markdown document is rendered into some output (such as HTML or PDF), the text will be formatted as specified by Markdown syntax. There are a lot of guides on how to use Markdown syntax. I will not cover this so you should check them out on your own. Here is one I reference often: [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet){target="_blank"}
 
-The text is formatted using a language known as **Markdown**. Markdown is a convenient and flexible way to format text. When a Markdown document is rendered into some output (such as HTML or PDF), the text will be formatted as specified by Markdown syntax.
+You can also create headers in Markdown. Headers are used to organize the content of a document into sections and subsections. Headers are created by using hash symbols (#) followed by a space and the title of the section. The number of hash symbols used indicates the level of the header. For example, a level 1 header is created with one hash symbol, a level 2 header is created with two hash symbols, and so on.
 
-There are a lot of guides on how to use Markdown syntax. I will not cover this so you should check them out on your own. Here is one I reference often: [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet){target="_blank"}
-
-Add some markdown text below the YAML header in your open Quarto document.
+Add some markdown text below the YAML header in your open Quarto document. Markdown text can be added anywhere in the document, without surrounding it with any special characters. For example, you can add the following text just below the YAML header:
 
 ```         
-Here is some sample text with a numbered list
+## Description
 
-1. This is first
-2. Second
-3. Third
+In this document we will:
+
+1. Load the penguins dataset.
+2. Calculate the mean body mass and flipper length of each penguin species.
+3. Create a scatter plot of body mass vs flipper length for each penguin species.
+4. Calculate the correlation between body mass and flipper length.
 ```
 
 ## R Code Chunks
 
-A Quarto document (.qmd) is a mixture of markdown text and R code chunks.
+R code chunks are used to include R code in a Quarto document. R code chunks are enclosed with three backticks and the letter `r` (or `{{r}}` for Quarto). The R code in the chunk will be executed when the document is rendered, and the results will be included in the output document. You can also specify options for the R code chunk, such as whether to show the code or just the results, whether to evaluate the code or not, and more.
 
-### Create an R code chunk
+::: callout-note
+-   [Here is a list of all the R code chunk options](https://quarto.org/docs/computations/execution-options.html){target="_blank"}
+-   [Here is a user guide on R code chunks](https://quarto.org/docs/computations/r.html){target="_blank"}
+:::
 
-R code chunks are enclosed with
+Add a first R code chunk to your Quarto document directly below the markdown text.
 
-```{{r}}
-a <- 1 + 6
-```
+1. First, insert an R code chunk using the shortcut:
 
-Or might look like:
-
-```{r}
-#| eval: false
-
-{r}
-
-a <- 1 + 6
-
-```
-
-You can create R code chunks with the shortcut:
-
-> Mac: ⌘ ⌥ i (command + alt/opt + i)
+> Mac: ⌘ ⌥ i (command + alt/opt + i) or ⌘ shift i (command + shift + i)
 >
 > Windows: ⌃ ⌥ i (ctrl + alt + i) 
 
-Insert the following code in the R code chunk
+2. Then, add the following code to the R code chunk:
 
 ```{r}
 library(palmerpenguins)
@@ -141,219 +108,116 @@ library(palmerpenguins)
 head(penguins)
 ```
 
-Create another R code chunk with the following code
+
+### Executing R Code Chunks
+
+Often times, when you are writing a Quarto document, you will want to run the R code chunks to see the results of the code. You can do this by executing the R code chunks.
+
+To run chunks of R code you can click on the "**Run Cell**" button on the top left of the R code chunk. Alternatively, you can run each line of code one at a time by placing your cursor on the line of code and  use the keyboard shortcuts:
+
+> Mac: ⌘ enter (command + enter)
+> Windows: Ctrl + Enter (ctrl + enter)
+
+## Rendering
+
+When you have finalized the content of a Quarto document you will then want to generate the document into the specified output format (e.g., HTML). To render a Quarto document click on **Preview** at the top. 
+
+[insert GIF of doing this]
+
+This will generate a preview of the document in the Viewer pane and create an HTML file. Find the generated HTML file and open it in the browser (you may need to right click on it in Positron to open in Browser). You will notice that it will open in your default web browser.
+
+Your rendered document should look something like:
+
+```{=html}
+<iframe src="/_demos/partial_intro_to_quarto.html" width="100%" height="600px" style="border: none;"></iframe>
+```
+
+## Next Steps
+
+Now let's go through and add headers and the rest of the code you wrote in the previous section to the Quarto document. You may also want to add some markdown text to describe what you are doing in each section of the document.
+
+First, just go ahead and delete the R code chunk we just created and we will add the R code chunks one section at a time.
+
+### Load Packages
+
+Directly under the markdown text, add a level 2 header for the first section titled "Load Packages". Under the header, and an R code chunk and add the following code to load the packages we will be using in this document:
 
 ```{r}
+# load packages
+library(palmerpenguins)
+library(dplyr)
 library(ggplot2)
+```
 
-ggplot(penguins, aes(species, body_mass_g, color = species)) +
-  geom_jitter(alpha = .7, width = .05, color = "gray") +
-  geom_point(stat = "summary", fun = mean, na.rm = TRUE, size = 3) +
-  geom_errorbar(stat = "summary", fun.data = mean_cl_normal, na.rm = TRUE,
-                width = .2) +
-  scale_color_brewer(palette = "Set1", label = "none") +
-  guides(color = "none") +
-  labs(title = "Body Mass of Penguin Species", 
-       x = "Species", y = "Body Mass (g)") +
+::: callout-note
+The code we will add for each section can is directly copied from the previous sectioin.
+:::
+
+Additionally, to clean up the document and remove unwanted messages and warning, we will add the following options to the R code chunk:
+
+```
+#| messages: false
+#| warning: false
+```
+
+Add these two lines of code directly below the three backticks and the letter `r` in the R code chunk. The R code chunk should look like this:
+
+```
+#| messages: false
+#| warning: false
+
+# load packages
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+```
+
+### Import Data
+
+Next, add a level 2 header for the next section titled "Import Data". Under the header, add an R code chunk and add the following code to import the penguins dataset:
+
+```{r}
+# import data
+data_import <- penguins
+```
+
+### Analysis
+
+Next, add a level 2 header for the next section titled "Analysis". Under the header add in separate R code chunks for transforming the data, creating the scatter plot, and calculating the correlation. You can feel free to create additional level 3 headers and markdown text to describe what you are doing in each section of the analysis.
+
+Transform data:
+
+```{r}
+# transform data
+data_plot <- data_import |>
+  mutate(.by = species,
+         flipper_length_mm.mean = mean(flipper_length_mm, na.rm = TRUE),
+         body_mass_g.mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+Create Scatter Plot:
+
+```{r}
+# visualize data
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species)) +
+  geom_point(size = 1, alpha = .5) +
+  geom_point(aes(x = flipper_length_mm.mean, y = body_mass_g.mean, 
+                 color = species), size = 3) +
   theme_classic()
 ```
 
-### Execute R code chunk
-
-To run chunks of R code you can click on the green "play" button on the top right of the R code chunk.
-
-![](images/excecute_code_chunk.png){width="293"}
-
-Go ahead and do so. You can see that the results of the R code chunks are now displayed in the document.
-
-## Visual Editor
-
-By default, Quarto will open a new document in the [visual editor mode](https://quarto.org/docs/visual-editor/#:~:text=To%20switch%20into%20visual%20mode,be%20preserved%20when%20you%20switch){target="_blank"}. The Quarto visual editor provides a [WYSIWYM](https://en.wikipedia.org/wiki/WYSIWYM){target="_blank"} editing interface.
-
-In **Source** mode, you will see the *raw* markdown and code elements. On occassion you may find that it is easier to edit a document in Source mode rather than with the Visual editor. You can switch back and forth between the two easily at the top-left of the toolbar
-
-![](images/visual-editing-switch-modes.png)
-
-## Render Document
-
-When you have finalized the content of a Quarto document you will then want to generate the document into the specified output format (e.g., HTML).
-
-To render a Quarto document click on **Render** at the top. This will
-
-1.  Generate a preview of the document in the Viewer pane
-2.  Create an HTML file
-
-Go ahead and render the document you just created. Find the generated HTML file and open it. You will notice that it will open in your default web browser.
-
-There are some advantages to using an HTML format:
-
--   Easily shareable, anyone can open it in a web browser (does not require some other application that might cost money like Microsoft Word)
-
--   Can include elements like
-
-    -   Table of contents
-
-    -   Tabs - can include a lot more content without taking up a lot of space and saves on scrolling through large documents
-
-    -   Code folding - code chunks can be toggled to hide/show them
-
-    -   Code download - link to download the Quarto document
-
-    -   CSS styling
-
-    -   and more
-
-Let's take a look at some of these elements and more
-
-## Additional Elements
-
-### Headers
-
-Headers are a great way to organize the content in a Quarto document. Use `#` to create different header levels:
-
-```         
-# This is a level 1 header
-
-## A level 2 header
-
-### And level 3 header
-```
-
-Headers become even more useful with a table of contents and using tabs
-
-### Table of Contents
-
-A table of contents is useful to navigate longer documents. It also provides an outline for the viewer to understand the document. You can specify the table of contents layout in the YAML header:
-
-```         
-format:
-  html:
-    toc: true
-    toc-depth: 1
-    toc-location: left
-```
-
-`toc-depth` will change how many header levels are displayed in the table of contents (toc).
-
-### Tabs
-
-Tabs are a great way to add a lot of content while avoiding having to scroll endlessly through a large document. The syntax for a tabset is
-
-```         
-::: panel-tabset
-## First tab
-
-Here is some content
-
-## A second tab
-
-More content!
-
-## And third tab
-
-Hello!
-:::
-```
-
-The second level headers will be used to label the tabs in the document (see below)
-
-You can also add multiple tabs easily by going to
-
-> Insert -\> Tabset...
-
-Tabs look like this:
-
-::: panel-tabset
-### First tab
-
-Here is some content
-
-### A second tab
-
-More content!
-
-### And third tab
-
-Hello!
-:::
-
-### Code Tools
-
-You can include a **Code** menu in the header of your document that provides various tools for readers to interact with the source code. Specify in the YAML
-
-```         
-code-tools: true
-```
-
-### Code Folding
-
-You may not always want to show the R code chunks in the HTML output. Or you might want to give the viewer a choice to show/hide R code chunks. You can specify code folding in the top-level YAML header or in each code chunk individually
-
-```         
-code-fold: true
-```
-
-| Value   | Behavior                     |
-|---------|------------------------------|
-| `false` | No folding (default)         |
-| `true`  | Fold code (initially hidden) |
-| `show`  | Fold code (initially shown)  |
-
-### R Chunk Options
-
-Some settings you can change for individual R code chunks. The syntax to do this uses `#|` in the R code chunk:
+Calculate Correlation:
 
 ```{r}
-#| echo: fenced
-#| eval: false
-#| warning: false
-#| message: false
-#| code-fold: show
-#| code-summary: "Hide the code!"
-
-1 + 1
+# statistical analysis
+cor.test(data_import$body_mass_g, data_import$flipper_length_mm)
 ```
 
-Some commone ones to change are:
+## Rendered Document
 
-| Option    | Description                                                                                                                                                                                       |
-|------------|------------------------------------------------------------|
-| `eval`    | Evaluate the code chunk (if `false`, just echos the code into the output).                                                                                                                        |
-| `echo`    | Include the source code in output                                                                                                                                                                 |
-| `output`  | Include the results of executing the code in the output (`true`, `false`, or `asis` to indicate that the output is raw markdown and should not have any of Quarto’s standard enclosing markdown). |
-| `warning` | Include warnings in the output.                                                                                                                                                                   |
-| `error`   | Include errors in the output (note that this implies that errors executing code will not halt processing of the document).                                                                        |
-| `include` | Catch all for preventing any output (code or results) from being included (e.g. `include: false` suppresses all output from the code block).                                                      |
+If you open the rendered HTML document in your web browser, it should look something like this:
 
-See the [Quarto Documentation](https://quarto.org/docs/computations/execution-options.html){target="_blank"} for more details
-
-### CSS Styling
-
-You can also add CSS styling, either as a separate .css document or at the end of the Quarto document.
-
-For instance, here are some of the styling options I used in the [sample report](/sample_report.html){target="_blank"}:
-
-```{css}
-/*| eval: false */
-
-.tab-content {
-  border-style: none;
-}
-
-h1 {
-  color: #005098;
-}
-
-h2 {
-  color: #96834a !important;
-  font-weight: 600 !important;
-}
-
-a {
-  color: #005098;
-}
-
-a:hover {
-  color: #96834a !important;
-}
+```{=html}
+<iframe src="/_demos/intro_to_quarto.html" width="100%" height="600px" style="border: none;"></iframe>
 ```

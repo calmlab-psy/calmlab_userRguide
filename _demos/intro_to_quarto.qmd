@@ -1,0 +1,72 @@
+---
+title: "An introduction to generating reports with Quarto"
+author: "Jason Tsukahara"
+date: today
+
+theme: default
+
+format: 
+  html:
+    toc: true
+
+self-contained: true
+---
+
+## Description
+
+In this document we will:
+
+1. Load the penguins dataset.
+2. Calculate the mean body mass and flipper length of each penguin species.
+3. Create a scatter plot of body mass vs flipper length for each penguin species.
+4. Calculate the correlation between body mass and flipper length.
+
+## Load Packages
+
+```{r}
+#| messages: false
+#| warning: false
+
+# load packages
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+```
+
+## Import Data
+
+```{r}
+# import data
+data_import <- penguins
+```
+
+## Analysis
+
+### Transform Data
+
+```{r}
+# transform data
+data_plot <- data_import |>
+  mutate(.by = species,
+         flipper_length_mm.mean = mean(flipper_length_mm, na.rm = TRUE),
+         body_mass_g.mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+### Create Scatter Plot
+
+```{r}
+# visualize data
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species)) +
+  geom_point(size = 1, alpha = .5) +
+  geom_point(aes(x = flipper_length_mm.mean, y = body_mass_g.mean, 
+                 color = species), size = 3) +
+  theme_classic()
+```
+
+### Calculate Correlation
+
+```{r}
+# statistical analysis
+cor.test(data_import$body_mass_g, data_import$flipper_length_mm)
+```
