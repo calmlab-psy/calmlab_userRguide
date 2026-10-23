@@ -1,6 +1,6 @@
 ---
 title: "Working with Data"
-subtitle: "An Introduction to Working with Data in R"
+subtitle: "An introduction to working with data in R"
 execute:
   echo: true
   eval: false
@@ -25,7 +25,7 @@ install.packages("palmerpenguins")
 ```
 
 ::: callout-note
-The install functions should just be typed into the Console (not in the script file) because this is a step that you only need to perform once.
+The install functions should just be typed into the Console (not in a script file) because this is a step that you only need to perform once.
 :::
 
 📝 Create a new file **intro_to_data.R** in your project folder.
@@ -114,7 +114,7 @@ unique(data_import$species)
 It looks like there are three unique values in the `species` column, Adelie, Gentoo, and Chinstrap. The `species` column is a type or class of values that are known as **factors**, again more on this in a bit. You could see this when we used `head()` with the notation `<fct>` meaning **factor**. But you can also see this because `unique()` also displayed the **levels** of the factor. Levels mean that there is a specified order to the values.
 
 ::: callout-note
-The [Summary Panel](https://positron.posit.co/data-explorer-summary-panel.html) in Data Explorer provides a summary of the values in each column. You can see the unique values, the number of missing values, and more. This is a useful tool to get a quick overview of your data.
+The [Summary Panel](https://positron.posit.co/data-explorer-summary-panel.html){target="_blank"} in Data Explorer provides a summary of the values in each column. You can see the unique values, the number of missing values, and more. This is a useful tool to get a quick overview of your data.
 
 What are the unique values in the `year` column? Does this column seem like it is a factor? What about `sex`?
 :::

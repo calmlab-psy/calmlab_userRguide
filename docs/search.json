@@ -212,7 +212,7 @@
     "href": "03-intro-data.html#prepare",
     "title": "Working with Data",
     "section": "",
-    "text": "Note\n\n\n\nThe install functions should just be typed into the Console (not in the script file) because this is a step that you only need to perform once.",
+    "text": "Note\n\n\n\nThe install functions should just be typed into the Console (not in a script file) because this is a step that you only need to perform once.",
     "crumbs": [
       "Getting Started",
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Working with Data</span>"
