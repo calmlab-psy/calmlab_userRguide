@@ -1,6 +1,6 @@
 ---
 title: "R Basics"
-subtitle: "Getting Started"
+subtitle: "Basics of R programming"
 execute:
   echo: true
   eval: true
@@ -35,8 +35,8 @@ string
 ```
 
 You can execute/run a line of code by placing the cursor anywhere on the line and
-pressing <kbd>⌘</kbd>+<kbd>↵</kbd> on macOS or <kbd>Ctrl</kbd>+<kbd>↵</kbd>
-on Windows/Linux.
+pressing <kbd>⌘</kbd>+<kbd>↵</kbd> on 🍎 macOS or <kbd>Ctrl</kbd>+<kbd>↵</kbd>
+on 🪟 Windows/Linux.
 
 Go ahead an run the two lines of code.
 
@@ -86,7 +86,7 @@ You can execute lines of code by:
 1.  Typing them directly into the Console window
 
 2.  Typing them into the Script window and then pressing <kbd>⌘</kbd>+<kbd>↵</kbd>
-  on macOS or <kbd>Ctrl</kbd>+<kbd>↵</kbd> on Windows/Linux. This executes one line of your code at a time.
+  on 🍎 macOS or <kbd>Ctrl</kbd>+<kbd>↵</kbd> on 🪟 Windows/Linux. This executes one line of your code at a time.
 
 3.  Clicking the **Play** ▶️ button in the top left corner of the Script window. This executes all lines of code in your script file.
 

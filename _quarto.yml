@@ -21,6 +21,7 @@ book:
       chapters:
         - 01-R-basics.qmd
         - 02-R-intermediate.qmd
+        - 03-intro-data.qmd
 
     - references.qmd
 

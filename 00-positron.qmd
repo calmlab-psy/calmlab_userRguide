@@ -22,8 +22,8 @@ Feel free to explore the available extensions, but the following are recommended
 
 ### Modify Settings
 
-- Press <kbd>⌘</kbd>+<kbd>,</kbd> (macOS) or <kbd>Ctrl</kbd>+<kbd>,</kbd>
-	(Windows/Linux), or click the gear icon (bottom-left) → **Settings**.
+- Press <kbd>⌘</kbd>+<kbd>,</kbd> (🍎 macOS) or <kbd>Ctrl</kbd>+<kbd>,</kbd>
+	(🪟 Windows/Linux), or click the gear icon (bottom-left) → **Settings**.
 - In the Settings window, click the **Search settings** bar at the top and type in the name of the setting you want to change. The list of settings will filter as you type.
 
 #### Files & whitespace
@@ -74,8 +74,8 @@ Feel free to explore the available extensions, but the following are recommended
 | Window: Close When Empty | `close when empty` | Check |
 
 **Icon theme** (`vscode-icons`): set this via the picker rather than search —
-open the Command Palette (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on macOS or
-<kbd>Ctrl</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on Windows/Linux) → **Preferences: File Icon
+open the Command Palette (<kbd>⌘</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on 🍎 macOS or
+<kbd>Ctrl</kbd>+<kbd>⇧</kbd>+<kbd>P</kbd> on 🪟 Windows/Linux) → **Preferences: File Icon
 Theme** → choose **VSCode Icons**.
 
 #### ## Git & GitHub

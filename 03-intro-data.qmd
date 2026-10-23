@@ -1,0 +1,296 @@
+---
+title: "Working with Data"
+subtitle: "An Introduction to Working with Data in R"
+execute:
+  echo: true
+  eval: false
+  message: false
+  warning: false
+---
+
+The main objective of this section is to get you a basic level of understanding of how to work with data in R.
+
+## Prepare
+
+Before starting this section:
+
+📦 Install the following packages in R:
+
+```{r}
+#| eval: false
+
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("palmerpenguins")
+```
+
+::: callout-note
+The install functions should just be typed into the Console (not in the script file) because this is a step that you only need to perform once.
+:::
+
+📝 Create a new file **intro_to_data.R** in your project folder.
+
+## Data Frames
+
+The main type of R object that you will be working with are data frames. A data frame is a table-like structure that contains rows and columns. The columns can contain different types of values, such as numbers, characters, or factors. Each row represents an observation or a case in your data set.
+
+Many R packages come loaded with data sets. Let's take a look at a fun data set from the [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/articles/intro.html){target="_blank"} package, do some simple transformations of the data, visualize, and do a simple statistical analysis.
+
+![](images/lter_penguins.png){fig-align="center" width="40%"}
+
+Load `palmerpenguins` , `dplyr` , and `ggplot2` packages. We will use `dplyr` to do some simple transformation of the data and `ggplot2` to visualize the data.
+
+```{r}
+#| warning: false
+#| message: false
+#| eval: true
+
+# load packages
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+```
+
+When you load `palmerpenguins` there is a data frame now available in your environment called `penguins`. However, it is not explicitly listed in your Session because it came from a package and not something you created. This is not required, but for the sake of being able to see the data frame in the Environment window, let's assign the `penguins` data frame to a new data frame called `data_import`.
+
+```{r}
+#| eval: true
+
+data_import <- penguins
+```
+
+::: callout-note
+I prefer to name data frames that I import with "import" that way it is clear which data frame is the original one. Then I create new data frames (R objects) with a different name. This allows me to easily identify and go back to the original data after I have done some transformations on it.
+:::
+
+### Viewing the Data
+
+Let's first get to know this data, how it is structured, and what kind of values it stores. You can view a data frame by selecting it in the Session window or by using the `View()` function.
+
+```{r}
+View(data_import)
+```
+
+Read [Data Explorer in Positron](https://positron.posit.co/data-explorer.html){target="_blank"} for an overview of the features available in the Data Explorer. 
+
+By viewing the data we can see that there are columns that contain information such as the species of the penguin, the island it belongs to, some size dimensions, and more.
+
+::: callout-note
+Notice how the column names are simple but also convey useful information for someone to easily understand this data. For instance, the the column `bill_length_mm` is not only straightforward but conveys the unit of measurement. It is not always possible to create both concise and information rich column names like these. When that is the case you can go on the side of being concise while providing documentation elsewhere that provides more detail.
+
+The principle of **easy to understand** is important and something we will keep coming back to.
+:::
+
+This data frame has a small number of columns so they are all easy to see. However, some data sets you work with will have a lot more columns that are difficult to view on a single page. In those cases, it can be useful to get a list of the column names printed to the Console. This can be done using the `names()` function.
+
+```{r}
+
+names(data_import)
+
+```
+
+Doing so also allows you to copy and paste the column names from the console into your R script. This is a good strategy to avoid typos that can cause you headaches when writing R code.
+
+It is important to understand what are the values and types of values stored in each column of your data. To get an initial peak at the data, you can use the `head()` function.
+
+```{r}
+
+head(data_import)
+
+```
+
+You can only see the first 10 rows, but you can already see some useful information. For instance, the **type of values** are noted in gray below the column names between `< >`. We will discuss these in more detail soon, but notice that the column `year` is of type `<int>` meaning **integer**. Integers are simple numbers with no decimal places.
+
+You may also notice that some columns contain `NA` values. These are missing values and are important to know if you have any in your data.
+
+To get more information as to the values in each column you can use the `unique()` function along with a `$` notation. `$` is a notation to reference a certain column in a data frame. For example, to reference the `species` column in `data_import` you would specify `data_import$species`. `unique()` will get the unique set of values in a column of data. This is useful to evaluate what values are contained in a column.
+
+```{r}
+
+unique(data_import$species)
+
+```
+
+It looks like there are three unique values in the `species` column, Adelie, Gentoo, and Chinstrap. The `species` column is a type or class of values that are known as **factors**, again more on this in a bit. You could see this when we used `head()` with the notation `<fct>` meaning **factor**. But you can also see this because `unique()` also displayed the **levels** of the factor. Levels mean that there is a specified order to the values.
+
+::: callout-note
+The [Summary Panel](https://positron.posit.co/data-explorer-summary-panel.html) in Data Explorer provides a summary of the values in each column. You can see the unique values, the number of missing values, and more. This is a useful tool to get a quick overview of your data.
+
+What are the unique values in the `year` column? Does this column seem like it is a factor? What about `sex`?
+:::
+
+### Types of Values
+
+Classes are types of values that exist in R. Here are a list of some common value types:
+
+-   character (or non-numeric) `"hello"`, `"goodbye"`
+
+-   double (or numeric) `2`, `32.55`
+
+-   integer `5`, `99`
+
+-   logical `TRUE`, `FALSE`
+
+-   missing `NA` `NaN`
+
+To evaluate the type of values in a column you can use `typeof()`
+
+```{r}
+
+typeof(data_import$bill_depth_mm)
+typeof(data_import$flipper_length_mm)
+```
+
+To change the class of values in an object you can use `as.character()` , `as.numeric()` , `as.double()` , `as.integer()` , `as.logical()` functions.
+
+```{r}
+
+as.character(data_import$bill_depth_mm)
+
+```
+
+### Factors
+
+Notice that if you evaluate the type of values in `species` you get an "integer". This is probably surprising to you because 1) They look like character values (non-numeric), and 2) I told you earlier that the `species` column is a **factor**. Factors are a special type of column, that represent levels of a category with an order to those levels. The actual values in Factors can be of type character, double, integer, or logical. However, they are represented as integers corresponding to the order of the levels. Factors become especially important in data visualization and statistical analysis.
+
+You can set a column of values as a factor by using `factor()`
+
+```{r}
+
+factor(data_import$year, levels = c(2007, 2008, 2009))
+```
+
+::: callout-note
+Note that this line of code does not actually change the values in data_import (neither did the `as.character(data_import$bill_depth_mm)` line of code above). Don't believe me? Run `unique(data_import$year)` or `head(data_import)`.
+
+Why do you think this is the case?
+
+It is because we did not use the assignment operator. We simply printed the result of this function to the Console. In order to actually change the values in a data frame you need to assign `<-` the result of the function `factor()` to a column in the data frame. In this case, to the values in the column `species` in the `data_import` object, `data_import$species`.
+:::
+
+::: callout-note
+How did I know how to use the argument name `levels =` in `factor()`? You can learn about arguments a function can take, and what they do using the helper function `?`. For instance type `?factor()` in the console. In the Help window, you can see there are a number of arguments that can be specified in `factor()`. For `levels`, it states that it is an optional vector of the unique values that x might have taken. This tells us we need to supply a vector of unique values. You can use the `c()` function to create a vector of values. Type `c(2007, 2008, 2009)` in the Console. You can see there are three elements in the vector for each year. We specify this vector in the `levels` argument to tell `factor()` that these are the unique values in the `data_import$year` column.
+:::
+
+## Transforming Data
+
+Just for the fun of it, let's do a simple transformation on the data, visualize a relationship between three variables, and statistically test a relationship between two variables. Three variables that we will look at are `species`, `flipper_length_mm` , and `body_mass_g`.
+
+First, let's compute the mean **flipper length** and **body mass** for each species of penguin and store them in columns in the data frame. Because we are now changing the original data frame, let's go ahead and call it something different. Because this is the data frame we will eventually plot, why not call it `data_plot`
+
+We will use the `mutate()` function to create new columns in the data frame.
+
+```{r}
+data_plot <- data_import |>
+  mutate()
+```
+
+::: callout-note
+What about that first line of code? The `|>` notation at the end of the line says pass `data_import` into the `mutate()` function. This is how `mutate()` knows where the columns `species`, `flipper_length_mm` , and `body_mass_g` come from. Then the result of `mutate()` is assigned to a new object, `data_plot`.
+
+Read about the [`|>` pipe operator]()
+:::
+
+We can then use the `.by = ` argument in `mutate()` to calculate the mean **flipper length** and **body mass** for each species of penguin. The `.by =` argument is a new feature in R 4.2.0 that allows you to specify a grouping variable for the calculation. In this case, we want to group by `species`. We will also use the `mean()` function to calculate the mean of each variable. We will use the `na.rm = TRUE` argument in `mean()` to remove any missing values from the calculation.
+
+```{r}
+#| eval: true
+
+data_plot <- data_import |>
+  mutate(.by = species,
+         flipper_length_mm.mean = mean(flipper_length_mm, na.rm = TRUE),
+         body_mass_g.mean = mean(body_mass_g, na.rm = TRUE))
+```
+
+Go ahead and view `data_plot`. You can see that it is the same as `data_import` except it has two new columns, `flipper_length_mm.mean` and `body_mass_g.mean`.
+
+## Visualizing Data
+
+We will use the `ggplot2` package to visualize the relationship between `species`, `flipper_length_mm` , and `body_mass_g`. Let's do this step-by-step. First let's build the **data** and **aesthetic** layers. These layers tell `ggplot()` what data to plot and how we map them onto the scales (e.g., x-axis and y-axis) of the graphic.
+
+```{r}
+#| eval: true
+
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species))
+```
+
+Note that this only creates the overall structure of the graphic, no data is plotted yet. That is because there are a lot of different ways to visualize the data and we need to specify these visual elements in the **geometries** or **geom** layer.
+
+```{r}
+#| eval: true
+
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species)) +
+  geom_point()
+```
+
+Note how it mapped species onto the color and shape of the data points.
+
+Let's make the plot a littler prettier by using a customized theme, `theme_classic()`
+
+```{r}
+#| eval: true
+
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species)) +
+  geom_point() +
+  theme_classic()
+```
+
+Optional: We can also add the mean **flipper length** and **body mass** for each species to the plot. We can do this by adding another `geom_point()` layer and specifying the `x` and `y` aesthetics to be the mean values we calculated earlier. Let's also make the individual data points a little smaller and more transparent so that the mean points stand out more.
+
+```{r}
+#| eval: true
+
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species)) +
+  geom_point(size = 1, alpha = .5) +
+  geom_point(aes(x = flipper_length_mm.mean, y = body_mass_g.mean, 
+                 color = species), size = 3) +
+  theme_classic()
+```
+
+## Statistical Analysis
+
+Based on the graphic visualization, it looks like there is a strong relationship between **body mass** and **flipper length**, perhaps unsurprisingly. Let's calculate the correlation between these two variables and test whether it is statistically significant or not.
+
+```{r}
+#| eval: true
+
+cor.test(data_import$body_mass_g, data_import$flipper_length_mm)
+```
+
+**The correlation is *r* = .87 and is statistically significant, *p* \< .05.**
+
+That was easy!
+
+## Class 1: Reproducible Script
+
+```{r}
+
+# load packages
+library(palmerpenguins)
+library(dplyr)
+library(ggplot2)
+
+# import data
+data_import <- penguins
+
+# transform data
+data_plot <- data_import |>
+  mutate(.by = species,
+         flipper_length_mm.mean = mean(flipper_length_mm, na.rm = TRUE),
+         body_mass_g.mean = mean(body_mass_g, na.rm = TRUE))
+
+# visualize data
+ggplot(data_plot, aes(x = flipper_length_mm, y = body_mass_g,
+                      color = species, shape = species)) +
+  geom_point(size = 1, alpha = .5) +
+  geom_point(aes(x = flipper_length_mm.mean, y = body_mass_g.mean, 
+                 color = species), size = 3) +
+  theme_classic()
+
+# statistical analysis
+cor.test(data_import$body_mass_g, data_import$flipper_length_mm)
+```

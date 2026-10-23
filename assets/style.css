@@ -124,8 +124,9 @@ blockquote {
 
 .callout.callout-tip {
   --calm-callout-color: var(--calm-green);
-  --calm-callout-tint: #EEF5F0;
+  --calm-callout-tint: #3A6B4F20;
 }
+
 
 .callout.callout-caution,
 .callout.callout-warning {
