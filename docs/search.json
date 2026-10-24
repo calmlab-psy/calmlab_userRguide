@@ -360,15 +360,5 @@
       "Getting Started",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Generating a Report</span>"
     ]
-  },
-  {
-    "objectID": "index.html#reproducible-research",
-    "href": "index.html#reproducible-research",
-    "title": "CALM Lab useRguide",
-    "section": "Reproducible Research",
-    "text": "Reproducible Research\nAn important part of the lab culture is the emphasis on reproducible research. This means that we strive to make our research as transparent and reproducible as possible, so that others can verify our results and build upon our work. Using tools like R, we can create scripts that document our data analysis workflows, making it easier to reproduce our results.",
-    "crumbs": [
-      "Welcome"
-    ]
   }
 ]
