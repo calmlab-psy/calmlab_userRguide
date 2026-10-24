@@ -346,6 +346,13 @@ main.content {
   padding-left: 1rem;
 }
 
+.home-page main.content img.calm-lab-mark {
+  float: left;
+  width: 140px;
+  max-width: 35%;
+  margin: 0.25rem 1rem 0.75rem 0;
+}
+
 #TOC .nav-link {
   position: relative;
   color: var(--calm-ink);
